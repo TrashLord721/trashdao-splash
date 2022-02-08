@@ -1,0 +1,26 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:#58BFAA;
+}
+
+.logo a {
+font-family: Roboto Mono;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 42px;
+}
