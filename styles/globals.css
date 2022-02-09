@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@700&family=Roboto+Mono:wght@500;700&display=swap");
+
 html,
 body {
   padding: 0;
   margin: 0;
+  font-family: "Roboto Mono", monospace;
+  cursor: url("/trashmouse.png"), auto;
 }
 
 a {
@@ -11,16 +15,17 @@ a {
 
 * {
   box-sizing: border-box;
+  cursor: url("/trashmouse.png"), auto;
 }
 
 html {
-  background:#58BFAA;
+  background: black;
 }
 
 .logo a {
-font-family: Roboto Mono;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
-line-height: 42px;
+  font-family: Roboto Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 42px;
 }
