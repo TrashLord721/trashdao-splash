@@ -25,7 +25,8 @@ import {
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: isNftOpen , onOpen: onNftOpen, onClose: onNftClose } = useDisclosure()
+  const { isOpen: isAboutOpen , onOpen: onAboutOpen, onClose: onAboutClose } = useDisclosure()
 
   return (
     <>
@@ -51,7 +52,7 @@ export default function Home() {
                   textAlign: "center",
                 }}
               >
-                <a href="#">TrashDAO</a>
+                <a href="/">TrashDAO</a>
               </Box>
               <br />
               <Text fontSize="sm" sx={{ color: "#72F44A", fontWeight: "700" }}>
@@ -85,7 +86,7 @@ export default function Home() {
                         fontWeight: "700",
                         padding: "5px",
                       }}
-                      onClick={onOpen}
+                      onClick={onNftOpen}
                     >
                       Swap NFT
                     </ListItem>
@@ -109,6 +110,7 @@ export default function Home() {
                         fontWeight: "700",
                         padding: "5px",
                       }}
+                      onClick={onAboutOpen}
                     >
                       About
                     </ListItem>
@@ -152,7 +154,8 @@ export default function Home() {
           sx={{ margin: "0 auto", display: "block" }}
         />
       </Box>
-      <SwapNFTModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+      <SwapNFTModal isOpen={isNftOpen} onOpen={onNftOpen} onClose={onNftClose} />
+      <BasicUsage isOpen={isAboutOpen} onOpen={onAboutOpen} onClose={onAboutClose} />
     </>
   );
 }
@@ -162,12 +165,12 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent
+        <ModalContent width={[`100%`, `50%`]}
           sx={{
             backgroundColor: `#E45050`,
             border: `2px solid white`,
+            borderRadius: '0px',
             color: `white`,
-            width: `clamp(100px, 50vw, 1200px)`,
             maxWidth: `100vw`,
           }}
         >
@@ -182,26 +185,22 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
           >
             SWAP NFT!
           </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
+          <Image src="/clickerthinger.png" sx={{position:`absolute`, top:`0px`, right: `0px`, padding:`50px 25px 0px 0px`}} onClick={onClose} />
+          <ModalBody sx={{letterSpacing:`.1em`,textShadow:`0px 3px 5px 0px #00000040;`,lineHeight:`23px`,fontSize:`20px`}}>
             <Text>
               Trash DAO is an experiment in decentralized governance and art.
               Continue to learn more, join the community (link discord trash
               category), and trade your NFTs for $TRASH.
             </Text>
-            <Heading>Smart Contract</Heading>
-            <Text></Text>
+            <Heading sx={{letterSpacing:'.1em',fontSize:'20px',textDecoration:`underline`,padding:`10px 0px`}}>Smart Contract</Heading>
+            <Text>
+              While the contracts have been reviewed by an experienced solidity developer, there are always risks in smart contracts having issues. By interacting with this smart contract you accept this risk and absolve the developers, community members, and website host of [all] responsibility.
+            </Text>
           </ModalBody>
 
-          <ModalFooter>
-            <Button
-              sx={{ backgroundColor: "#FDF500" }}
-              mr={3}
-              onClick={onClose}
-            >
-              Cancel
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
+          <ModalFooter sx={{margin:`0 auto`}}>
+            <Link sx={{ backgroundColor: "white", borderRadius:`25px`, textTransform:`uppercase`,color:`#E45050`,boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`, padding:`4px`, width:'105px',textAlign:'center',fontWeight:`700`,marginRight:`5px` }} onClick={onClose}>Cancel</Link>
+            <Link sx={{ backgroundColor: "#FFEE04", borderRadius:`25px`, textTransform:`uppercase`,color:`#E45050`,boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`, padding:`4px`, width:'105px',textAlign:'center',fontWeight:`700`,marginLeft:`5px` }} href="https://szns.io/explore" target="_blank">Continue</Link>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -209,12 +208,37 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
   );
 }
 
-function TrashMouse({ x, y }) {
+
+function BasicUsage({ isOpen, onOpen, onClose }) {
   return (
-    <Image
-      src="/trashmouse.png"
-      sx={{ position: `absolute`, left: `${x}`, top: `${y}` }}
-      alt={""}
-    />
-  );
+    <>
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent width={[`100%`, `50%`]}
+          sx={{
+            backgroundColor: `black`,
+            border: `2px solid white`,
+            borderRadius: '0px',
+            color: `#E332F0`,
+            maxWidth: `100vw`,
+          }}
+        >
+          <ModalHeader
+            sx={{
+              color: `#72F44A`,
+              textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
+              fontSize: `4vmax`,
+              textAlign: `center`,
+              fontFamily: `'Epilogue', sans-serif`,
+            }}
+          >
+            ABOUT
+          </ModalHeader>
+          <Image src="/clickerthinger.png" sx={{position:`absolute`, top:`0px`, right: `0px`, padding:`50px 25px 0px 0px`}} onClick={onClose} />
+          <ModalBody sx={{letterSpacing:`.1em`,textShadow:`0px 3px 5px 0px #00000040;`,lineHeight:`23px`,fontSize:`20px`}}>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  )
 }
