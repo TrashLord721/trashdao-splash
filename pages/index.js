@@ -46,6 +46,45 @@ export default function Home() {
     });
   };
 
+  const [playing, setPlaying] = useState(false);
+  const actx = useRef(null);
+  const audioElement = useRef(null);
+  useEffect(() => {
+    const AudioContext = window?.AudioContext || window?.webkitAudioContext;
+    audioElement.current = document.querySelector("#song");
+    actx.current = new AudioContext(); // Modern Audio object
+  }, []);
+
+  useEffect(() => {
+    // This code block waits for the HTML to render before looking for the <audio> element
+    const timer = setTimeout(() => {
+      audioElement.current.onEnded = () => {
+        handleEnd();
+      };
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  const handleClick = () => {
+    // Initialize the AudioContext State & play / pause
+    if (actx.state === "suspended") {
+      actx.resume();
+    }
+    if (playing === false) {
+      audioElement.current.play();
+      setPlaying(true);
+    } else {
+      audioElement.current.pause();
+      setPlaying(false);
+    }
+  };
+  const handleEnd = () => {
+    // I'm not sure if this is working...
+    setPlaying(false);
+    console.log("song ended!");
+  };
+
   return (
     <>
       <Head>
@@ -168,8 +207,11 @@ export default function Home() {
           sx={{ margin: "0 auto", display: "block" }}
           active={active}
           handleChangeActive={handleChangeActive}
+          onClick={() => {
+            handleClick();
+          }}
         />
-        <MusicPlayer />
+        <audio id="song" src="/trashsong.mp3"></audio>
       </Box>
       <SwapNFTModal
         isOpen={isNftOpen}
@@ -185,72 +227,11 @@ export default function Home() {
   );
 }
 
-function MusicPlayer() {
-  const [playing, setPlaying] = useState(false);
-  const actx = useRef(null);
-  const audioElement = useRef(null);
-  useEffect(() => {
-    const AudioContext = window?.AudioContext || window?.webkitAudioContext;
-    audioElement.current = document.querySelector("#song");
-    actx.current = new AudioContext(); // Modern Audio object
-  }, []);
 
-  useEffect(() => {
-    // This code block waits for the HTML to render before looking for the <audio> element
-    const timer = setTimeout(() => {
-      audioElement.current.onEnded = () => {
-        handleEnd();
-      };
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  });
-
-  const handleClick = () => {
-    // Initialize the AudioContext State & play / pause
-    if (actx.state === "suspended") {
-      actx.resume();
-    }
-    if (playing === false) {
-      audioElement.current.play();
-      setPlaying(true);
-    } else {
-      audioElement.current.pause();
-      setPlaying(false);
-    }
-  };
-  const handleEnd = () => {
-    // I'm not sure if this is working...
-    setPlaying(false);
-    console.log("song ended!");
-  };
-
+function ToggleImages({ active, handleChangeActive, onClick }) {
   return (
     <>
-      <Image
-        src="/trash.gif"
-        alt="two speakers"
-        title="Click to play music" // a cheeky tooltip
-        sx={{
-          cursor: `pointer`,
-          position: `absolute`,
-          right: `50px`,
-          bottom: `50px`,
-          maxWidth: `50px`,
-        }}
-        onClick={() => {
-          handleClick();
-        }}
-      />
-      <audio id="song" src="/trashsong.mp3"></audio>
-    </>
-  );
-}
-
-function ToggleImages({ active, handleChangeActive }) {
-  return (
-    <>
-      <Box className="toggle-wrapper" sx={{ width: `100%` }}>
+      <Box className="toggle-wrapper" onClick={onClick} sx={{ width: `100%` }}>
         {active ? (
           <img
             className="active"
