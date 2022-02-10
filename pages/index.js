@@ -109,7 +109,7 @@ export default function Home() {
                   textAlign: "center",
                 }}
               >
-                <a href="/">TrashDAO</a>
+                <Link href="/">TrashDAO</Link>
               </Box>
               <br />
               <Text fontSize="sm" sx={{ color: "#72F44A", fontWeight: "700" }}>
@@ -494,9 +494,9 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
               created in the Trash Art community, legends like Jay Delay and
               projects such as Rats.Art. There is existing literature around the
               Crypto Trash Art movement, but to summarize,{" "}
-              <a href="https://nfts.wtf/what-exactly-is-trash-art/">
+              <Link href="https://nfts.wtf/what-exactly-is-trash-art/" isExternal>
                 Trash Art
-              </a>{" "}
+              </Link>{" "}
               has three essential parts – the movement, the meme and the
               aesthetic.
             </Text>
