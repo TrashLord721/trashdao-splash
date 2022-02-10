@@ -23,14 +23,11 @@ import {
   Heading,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
-<<<<<<< HEAD
   const { isOpen: isNftOpen , onOpen: onNftOpen, onClose: onNftClose } = useDisclosure()
   const { isOpen: isAboutOpen , onOpen: onAboutOpen, onClose: onAboutClose } = useDisclosure()
-=======
-  const { isOpen, onOpen, onClose } = useDisclosure();
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
 
   return (
     <>
@@ -56,11 +53,7 @@ export default function Home() {
                   textAlign: "center",
                 }}
               >
-<<<<<<< HEAD
                 <a href="/">TrashDAO</a>
-=======
-                <a href="#">TrashDAO</a>
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
               </Box>
               <br />
               <Text fontSize="sm" sx={{ color: "#72F44A", fontWeight: "700" }}>
@@ -94,11 +87,7 @@ export default function Home() {
                         fontWeight: "700",
                         padding: "5px",
                       }}
-<<<<<<< HEAD
                       onClick={onNftOpen}
-=======
-                      onClick={onOpen}
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
                     >
                       Swap NFT
                     </ListItem>
@@ -122,10 +111,7 @@ export default function Home() {
                         fontWeight: "700",
                         padding: "5px",
                       }}
-<<<<<<< HEAD
                       onClick={onAboutOpen}
-=======
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
                     >
                       About
                     </ListItem>
@@ -169,12 +155,8 @@ export default function Home() {
           sx={{ margin: "0 auto", display: "block" }}
         />
       </Box>
-<<<<<<< HEAD
       <SwapNFTModal isOpen={isNftOpen} onOpen={onNftOpen} onClose={onNftClose} />
       <BasicUsage isOpen={isAboutOpen} onOpen={onAboutOpen} onClose={onAboutClose} />
-=======
-      <SwapNFTModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
     </>
   );
 }
@@ -184,21 +166,12 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-<<<<<<< HEAD
         <ModalContent width={[`100%`, `50%`]}
           sx={{
             backgroundColor: `#E45050`,
             border: `2px solid white`,
             borderRadius: '0px',
             color: `white`,
-=======
-        <ModalContent
-          sx={{
-            backgroundColor: `#E45050`,
-            border: `2px solid white`,
-            color: `white`,
-            width: `clamp(100px, 50vw, 1200px)`,
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
             maxWidth: `100vw`,
           }}
         >
@@ -213,43 +186,23 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
           >
             SWAP NFT!
           </ModalHeader>
-<<<<<<< HEAD
           <Image src="/clickerthinger.png" sx={{position:`absolute`, top:`0px`, right: `0px`, padding:`50px 25px 0px 0px`}} onClick={onClose} />
-          <ModalBody sx={{letterSpacing:`.1em`,textShadow:`0px 3px 5px 0px #00000040;`,lineHeight:`23px`,fontSize:`20px`}}>
-=======
-          <ModalCloseButton />
-          <ModalBody>
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
+          <ModalBody sx={{letterSpacing:`.1em`,textShadow:`0px 3px 5px 0px #00000040;`,lineHeight:`23px`,fontSize:`20px`,width:[`100%`, `60%`],margin:`0 auto`}}>
             <Text>
               Trash DAO is an experiment in decentralized governance and art.
               Continue to learn more, join the community (link discord trash
               category), and trade your NFTs for $TRASH.
             </Text>
-<<<<<<< HEAD
             <Heading sx={{letterSpacing:'.1em',fontSize:'20px',textDecoration:`underline`,padding:`10px 0px`}}>Smart Contract</Heading>
             <Text>
               While the contracts have been reviewed by an experienced solidity developer, there are always risks in smart contracts having issues. By interacting with this smart contract you accept this risk and absolve the developers, community members, and website host of [all] responsibility.
             </Text>
+            <br />
           </ModalBody>
 
           <ModalFooter sx={{margin:`0 auto`}}>
             <Link sx={{ backgroundColor: "white", borderRadius:`25px`, textTransform:`uppercase`,color:`#E45050`,boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`, padding:`4px`, width:'105px',textAlign:'center',fontWeight:`700`,marginRight:`5px` }} onClick={onClose}>Cancel</Link>
             <Link sx={{ backgroundColor: "#FFEE04", borderRadius:`25px`, textTransform:`uppercase`,color:`#E45050`,boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`, padding:`4px`, width:'105px',textAlign:'center',fontWeight:`700`,marginLeft:`5px` }} href="https://szns.io/explore" target="_blank">Continue</Link>
-=======
-            <Heading>Smart Contract</Heading>
-            <Text></Text>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button
-              sx={{ backgroundColor: "#FDF500" }}
-              mr={3}
-              onClick={onClose}
-            >
-              Cancel
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -257,14 +210,13 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
   );
 }
 
-<<<<<<< HEAD
 
 function BasicUsage({ isOpen, onOpen, onClose }) {
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent width={[`100%`, `50%`]}
+        <ModalContent width={[`100%`, `50%`]} height={`80vh`}
           sx={{
             backgroundColor: `black`,
             border: `2px solid white`,
@@ -273,33 +225,63 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
             maxWidth: `100vw`,
           }}
         >
-          <ModalHeader
-            sx={{
+          <Image src="/clickerthinger.png" sx={{position:`absolute`, top:`0px`, right: `0px`, padding:`50px 25px 0px 0px`,zIndex:'9'}} onClick={onClose} />
+          <Marquee gradientWidth="0" speed="100">
+            <Text sx={{
               color: `#72F44A`,
               textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
               fontSize: `4vmax`,
               textAlign: `center`,
               fontFamily: `'Epilogue', sans-serif`,
-            }}
-          >
-            ABOUT
-          </ModalHeader>
-          <Image src="/clickerthinger.png" sx={{position:`absolute`, top:`0px`, right: `0px`, padding:`50px 25px 0px 0px`}} onClick={onClose} />
-          <ModalBody sx={{letterSpacing:`.1em`,textShadow:`0px 3px 5px 0px #00000040;`,lineHeight:`23px`,fontSize:`20px`}}>
+            }}>ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT</Text>
+          </Marquee>
+          <ModalBody sx={{letterSpacing:`.1em`,textShadow:`0px 3px 5px 0px #00000040;`,lineHeight:`23px`,fontSize:`20px`,textTransform:`uppercase`,maxHeight:`80vh`,overflowY:`scroll`, width:[`100%`, `60%`],margin:`15px auto`}}>
+          <Heading>How do we assign value in the age of digital reproduction?</Heading>
+            <br />
+          <Text>Some believe NFTs are trash. Others believe trash is art. We believe it can be all. Value can be subjective, and we get to collectively decide in what we place value to. One element TrashDAO is experimenting with is decentrally curated image practices. Street art or graffiti is a close IRL version of this case in point, but we’d like to play with this concept in crypto. </Text>
+            <br />
+          <Text>Each indivual adding an NFT to the ‘trashpile’ is curating and therefore adding to the visual dialougue that is TrashDAO.</Text> 
+            <br />
+          <Heading>How is TrashDAO fostering collective ownership?</Heading>
+            <br />
+          <Text>We are currently in the earliest innings in the development of DAOs where lots of challenges exist with regard to decentralized coordination. TrashDAO is an experiment by which we aim to explore the limits and possibilities of truly decentralized coordination via tokenholder voting that gets executed on-chain without trusting a simple multisig of owners.</Text>
+            <br />
+          <Heading>TrashDAO Tokenomics and Album Governance</Heading>
+            <br />
+            <strong>Total Supply:</strong> ∞
+            <br />
+            <strong>Community:</strong> 100%
+            <br />
+            <strong>Treasury:</strong> To be determined by Community
+            <br />
+            <strong>LP Incentive:</strong> To be determined by community
+            <br />
+            <strong>Founders:</strong> 0%
+            <br />
+            <strong>Investors:</strong> N/A
+            <br />          
+            <br /> 
+          <Text>$TRASH does not have any prior determined allocations. It is truly a decentralized approach to tokenomics. At time of launch, the only way of acquiring $TRASH is via depositing trash to the Trash DAO. Swap any NFT from the qualified contracts and recieve 69 $TRASH tokens in return. Using the SZNS interface, TrashDAO members can make other standardized proposals as a DAO member.</Text>
+            <br />
+          <Text>The tokenomics are vague and equal for a reason. We implore the community to shape the DAO as they desire and submit proposals(link) with SZNS. For example, a proposal to award users with even more $TRASH based on certain NFTs, deposit a non-trash NFT (or is it still trash) such as a Bored Ape, and receives $42069 TRASH in return, Uncap the total supply? The possibilities are endless. </Text>
+            <br />
+          <Heading>Inspiration from the Trash Art Movement (uncertain about this part) </Heading> 
+            <br />
+          <Text>Artistic inspiration for the TrashDAO effort comes from visions created in the Trash Art community, legends like Jay Delay and projects such as Rats.Art. There is existing literature around the Crypto Trash Art movement, but to summarize, <a href="https://nfts.wtf/what-exactly-is-trash-art/">Trash Art</a> has three essential parts – the movement, the meme and the aesthetic.</Text>
+            <br />
+          <Text>The movement: Trash Art brings an irreverent attitude to the NFT space promoting decentralized open-platforms, anti-gatekeeping, remix culture, and the democratization of art.</Text>
+            <br />
+          <Text>The meme: Robness’ The 64-gallon toter(link) became the memetic symbol of the movement. </Text>
+            <br />
+          <Text>The aesthetic: Embodies the ideals of Dada, Punk, and Crypto combined with a lo-fi glitch aesthetic or digital folk art style.  TrashDAO takes inspiration from both the philosophy of the movement as well as the aesthetic.</Text>
+            <br />
+          <Heading>Disclaimers</Heading>
+            <br />
+          <Text>There is a dedicated list of NFTs defined in the Bounty Board contract (link) to prevent spam and aggressive minting of $TRASH. The DAO only accepts qualified ETH Mainnet ERC721s at launch. Proceed at your own risk and DYOR. The contract has been examined by big brain solidity folks, but no official audit has been performed!</Text>
+
           </ModalBody>
         </ModalContent>
       </Modal>
     </>
   )
 }
-=======
-function TrashMouse({ x, y }) {
-  return (
-    <Image
-      src="/trashmouse.png"
-      sx={{ position: `absolute`, left: `${x}`, top: `${y}` }}
-      alt={""}
-    />
-  );
-}
->>>>>>> d21e5a95bf8c51047c69cf53442548ad56b7631e
