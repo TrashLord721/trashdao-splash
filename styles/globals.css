@@ -8,6 +8,12 @@ body {
   cursor: url("/trashmouse.png"), auto;
 }
 
+button {
+  background:yellow;
+  height:50px;
+  width:50px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -20,6 +26,16 @@ a {
 
 html {
   background: black;
+}
+
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active, .inactive {
+
 }
 
 .logo a {

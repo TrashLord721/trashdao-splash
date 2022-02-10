@@ -29,6 +29,16 @@ export default function Home() {
   const { isOpen: isNftOpen , onOpen: onNftOpen, onClose: onNftClose } = useDisclosure()
   const { isOpen: isAboutOpen , onOpen: onAboutOpen, onClose: onAboutClose } = useDisclosure()
 
+// toggle stuff
+  const [active, setActive] = useState(false);
+
+  const handleChangeActive = () => {
+    setActive((previousStar) => {
+      return !previousStar;
+    });
+  };
+
+
   return (
     <>
       <Head>
@@ -147,16 +157,89 @@ export default function Home() {
             </Box>
           </SimpleGrid>
         </header>
-        <Image
-          src="/Trash.gif"
-          alt="Trash Bag"
-          width="470"
-          height="596"
-          sx={{ margin: "0 auto", display: "block" }}
-        />
+        <ToggleImages sx={{ margin: "0 auto", display: "block" }} active={active} handleChangeActive={handleChangeActive} />
+        <MusicPlayer />
       </Box>
       <SwapNFTModal isOpen={isNftOpen} onOpen={onNftOpen} onClose={onNftClose} />
       <BasicUsage isOpen={isAboutOpen} onOpen={onAboutOpen} onClose={onAboutClose} />
+    </>
+  );
+}
+
+function MusicPlayer() {
+
+  const [playing, setPlaying] = useState(false);
+  const [audioContext, setAudioContext] = useState();
+  useEffect(() => {
+    setAudioContext(window?.AudioContext || window?.webkitAudioContext);
+    let audioElement = document.querySelector('#song');
+  },[])
+  useEffect(() => {
+    const actx = new audioContext(); // Modern Audio object
+  },[audioContext])
+
+  useEffect(() => { // This code block waits for the HTML to render before looking for the <audio> element
+      const timer = setTimeout(() => {
+          audioElement = document.querySelector('#song');
+          audioElement.onEnded = () => {handleEnd()};
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+  })
+  
+
+  const handleClick = () => { // Initialize the AudioContext State & play / pause
+      if (actx.state === 'suspended') {
+          actx.resume();
+      }
+      if  (playing === false) {
+          audioElement.play();
+          setPlaying(true);
+      } else {
+          audioElement.pause();
+          setPlaying(false);
+      }
+  }
+  const handleEnd = () => { // I'm not sure if this is working...
+      setPlaying(false);
+      console.log('song ended!');
+  }
+
+  return(
+      <>
+      <img 
+      src="/trash.gif" 
+      alt="two speakers" 
+      title="Click to play music" // a cheeky tooltip
+      style={{cursor: `pointer`,}}
+      onClick={() => {handleClick()}}/>
+      <audio id="song" src="/trashsong.mp3" ></audio>
+      </>
+  )
+}
+
+function ToggleImages({ active, handleChangeActive }) {
+  return (
+    <>
+      <Box className="toggle-wrapper" sx={{width:`100%`}}>
+        {active ? (
+          <img
+            className="active"
+            src='/jd-collab-edit.gif'
+            onClick={() => handleChangeActive()}
+            width="470"
+            height="596"
+          />
+        ) : (
+          <img
+            className="inactive"
+            src='/Trash.gif'
+            onClick={() => handleChangeActive()}
+            width="470"
+            height="596"
+          />
+        )}
+      </Box>
     </>
   );
 }
@@ -209,7 +292,6 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
     </>
   );
 }
-
 
 function BasicUsage({ isOpen, onOpen, onClose }) {
   return (
@@ -285,3 +367,4 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
     </>
   )
 }
+
