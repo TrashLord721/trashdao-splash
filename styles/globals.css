@@ -32,10 +32,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.active, .inactive {
-
+  padding-top: 25px;
 }
 
 .logo a {
