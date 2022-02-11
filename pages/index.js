@@ -387,7 +387,7 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               developer, there are always risks in smart contracts having
               issues. By interacting with this smart contract you accept this
               risk and absolve the developers, community members, and website
-              host of [all] responsibility.
+              host of all responsibility.
             </Text>
             <br />
           </ModalBody>
