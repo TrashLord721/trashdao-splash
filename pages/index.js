@@ -73,7 +73,7 @@ export default function Home() {
     }
     if (playing === false) {
       audioElement.current.play();
-      setPlaying(true);
+      setPlaying(false);
     } else {
       audioElement.current.pause();
       setPlaying(false);
@@ -88,7 +88,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>TrashDAO - A Collab SZNS & Trash Artists</title>
+        <title>TrashDAO - A Collab by Trash Artists</title>
       </Head>
       <Box
         sx={{
@@ -113,7 +113,7 @@ export default function Home() {
               </Box>
               <br />
               <Text fontSize="sm" sx={{ color: "#72F44A", fontWeight: "700" }}>
-                A collab SZNS & Trash Artists
+              A Collab by Trash Artists
               </Text>
             </Box>
             <Box
@@ -236,7 +236,6 @@ function ToggleImages({ active, handleChangeActive, onClick }) {
           <img
             className="active"
             src="/jd-collab-edit.gif"
-            onClick={() => handleChangeActive()}
             width="470"
             height="596"
           />
