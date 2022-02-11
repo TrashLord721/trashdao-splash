@@ -24,8 +24,16 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect, useRef } from "react";
 import Marquee from "react-fast-marquee";
+import toast from "react-hot-toast";
 
 export default function Home() {
+  const CopyAddress = async () => {
+    const res = await navigator.clipboard.writeText(
+      "0x2Ea988868c0575a5803e841291B605BAfAD0A9cD"
+    );
+    toast.success("Address In Clipboard");
+  };
+
   const {
     isOpen: isNftOpen,
     onOpen: onNftOpen,
@@ -113,7 +121,7 @@ export default function Home() {
               </Box>
               <br />
               <Text fontSize="sm" sx={{ color: "#72F44A", fontWeight: "700" }}>
-              A Collab by Trash Artists
+                A Collab by Trash Artists
               </Text>
             </Box>
             <Box
@@ -210,6 +218,7 @@ export default function Home() {
           onClick={() => {
             handleClick();
           }}
+          copyAddress={CopyAddress}
         />
         <audio id="song" src="/trashsong.mp3"></audio>
       </Box>
@@ -227,37 +236,85 @@ export default function Home() {
   );
 }
 
-
-function ToggleImages({ active, handleChangeActive, onClick }) {
+function ToggleImages({ active, handleChangeActive, onClick, copyAddress }) {
   return (
     <>
       <Box className="toggle-wrapper" onClick={onClick} sx={{ width: `100%` }}>
-        {active ? (
-          <Box>
-          <img
-            className="active"
-            src="/jd-collab-edit.gif"
-            width="470"
-            height="596"
-          />
-          <br />
-          <UnorderedList sx={{color:`#72F44A`,fontFamily:`Roboto Mono`,fontWeight:`700`,fontSize:`16px`,textAlign:`center`,listStyle:`none`}}>
-            <ListItem sx={{display:`inline-block`,marginRight:`5px`}}><Link href="https://twitter.com/Jay_Delay" isExternal>JAYDELAY</Link></ListItem>
-            <ListItem sx={{display:`inline-block`}}>•</ListItem>
-            <ListItem sx={{display:`inline-block`,marginLeft:`5px`}}><Link href="https://twitter.com/robnessofficial" isExternal>ROBNESS</Link></ListItem>
-          </UnorderedList>
-          <br />
-          {/* MACK MACK BUTTON TIME */}
-          </Box>
-        ) : (
-          <img
+        <Box>
+          <Image
             className="inactive"
             src="/Trash.gif"
             onClick={() => handleChangeActive()}
             width="470"
             height="596"
+            sx={{ display: active ? "none" : "block" }}
+            alt=""
           />
-        )}
+          <Box sx={{ display: active ? "block" : "none" }}>
+            <Image
+              className="active"
+              src="/jd-collab-edit.gif"
+              width="470"
+              height="596"
+              alt=""
+            />
+            <br />
+            <UnorderedList
+              sx={{
+                color: `#72F44A`,
+                fontFamily: `Roboto Mono`,
+                fontWeight: `700`,
+                fontSize: `16px`,
+                textAlign: `center`,
+                listStyle: `none`,
+              }}
+            >
+              <ListItem sx={{ display: `inline-block`, marginRight: `5px` }}>
+                <Link href="https://twitter.com/Jay_Delay" isExternal>
+                  JAYDELAY
+                </Link>
+              </ListItem>
+              <ListItem sx={{ display: `inline-block` }}>•</ListItem>
+              <ListItem sx={{ display: `inline-block`, marginLeft: `5px` }}>
+                <Link href="https://twitter.com/robnessofficial" isExternal>
+                  ROBNESS
+                </Link>
+              </ListItem>
+            </UnorderedList>
+            <br />
+            <Box sx={{ display: `flex`, flexDirection: `column`, gap: `2rem` }}>
+              <Button
+                sx={{
+                  backgroundColor: `#72F44A`,
+                  color: `black`,
+                  fontSize: `2vmax`,
+                  padding: `1ex 1em`,
+                  height: `auto`,
+                }}
+                _hover={{
+                  backgroundColor: `white`,
+                  transform: `translateY(-8px)`,
+                  boxShadow: `0px 8px 0px #72F44A`,
+                }}
+                onClick={() => copyAddress()}
+              >
+                donate
+              </Button>
+              <Text
+                sx={{
+                  color: `white`,
+                  maxWidth: `40ch`,
+                  margin: `2ex auto`,
+                  fontFamily: `'Roboto Mono', serif`,
+                }}
+              >
+                Clicking &apos;Donate&apos; will copy a multisig address to your
+                clipboard. Transfer whichever tokens you like there from your
+                wallet.
+              </Text>
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </>
   );
@@ -298,6 +355,7 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               padding: `50px 25px 0px 0px`,
             }}
             onClick={onClose}
+            alt=""
           />
           <ModalBody
             sx={{
@@ -402,6 +460,7 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
               padding: `50px 25px 0px 0px`,
               zIndex: "9",
             }}
+            alt=""
             onClick={onClose}
           />
           <Marquee gradientWidth="0" speed="100">
@@ -503,7 +562,10 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
               created in the Trash Art community, legends like Jay Delay and
               projects such as Rats.Art. There is existing literature around the
               Crypto Trash Art movement, but to summarize,{" "}
-              <Link href="https://nfts.wtf/what-exactly-is-trash-art/" isExternal>
+              <Link
+                href="https://nfts.wtf/what-exactly-is-trash-art/"
+                isExternal
+              >
                 Trash Art
               </Link>{" "}
               has three essential parts – the movement, the meme and the
