@@ -233,12 +233,22 @@ function ToggleImages({ active, handleChangeActive, onClick }) {
     <>
       <Box className="toggle-wrapper" onClick={onClick} sx={{ width: `100%` }}>
         {active ? (
+          <Box>
           <img
             className="active"
             src="/jd-collab-edit.gif"
             width="470"
             height="596"
           />
+          <br />
+          <UnorderedList sx={{color:`#72F44A`,fontFamily:`Roboto Mono`,fontWeight:`700`,fontSize:`16px`,textAlign:`center`,listStyle:`none`}}>
+            <ListItem sx={{display:`inline-block`,marginRight:`5px`}}><Link href="https://twitter.com/Jay_Delay" isExternal>JAYDELAY</Link></ListItem>
+            <ListItem sx={{display:`inline-block`}}>•</ListItem>
+            <ListItem sx={{display:`inline-block`,marginLeft:`5px`}}><Link href="https://twitter.com/robnessofficial" isExternal>ROBNESS</Link></ListItem>
+          </UnorderedList>
+          <br />
+          {/* MACK MACK BUTTON TIME */}
+          </Box>
         ) : (
           <img
             className="inactive"
