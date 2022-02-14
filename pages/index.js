@@ -276,8 +276,8 @@ function ToggleImages({ active, handleChangeActive, onClick, copyAddress }) {
               </ListItem>
               <ListItem sx={{ display: `inline-block` }}>•</ListItem>
               <ListItem sx={{ display: `inline-block`, marginLeft: `5px` }}>
-                <Link href="https://twitter.com/robnessofficial" isExternal>
-                  ROBNESS
+                <Link href="https://twitter.com/bitttylabs" isExternal>
+                  BITTTY
                 </Link>
               </ListItem>
             </UnorderedList>
