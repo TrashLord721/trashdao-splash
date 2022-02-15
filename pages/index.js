@@ -152,6 +152,10 @@ export default function Home() {
                         padding: "5px",
                       }}
                       onClick={onNftOpen}
+                      _hover={{
+                        cursor: `pointer`,
+                        textDecoration: `underline`,
+                      }}
                     >
                       Swap NFT
                     </ListItem>
@@ -176,6 +180,10 @@ export default function Home() {
                         padding: "5px",
                       }}
                       onClick={onAboutOpen}
+                      _hover={{
+                        cursor: `pointer`,
+                        textDecoration: `underline`,
+                      }}
                     >
                       About
                     </ListItem>
@@ -356,6 +364,9 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
             }}
             onClick={onClose}
             alt=""
+            _hover={{
+              cursor: `pointer`,
+            }}
           />
           <ModalBody
             sx={{
@@ -462,6 +473,9 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
             }}
             alt=""
             onClick={onClose}
+            _hover={{
+              cursor: `pointer`,
+            }}
           />
           <Marquee gradientWidth="0" speed="100">
             <Text
