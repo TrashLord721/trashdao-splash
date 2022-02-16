@@ -101,7 +101,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>TrashDAO - A Trash Artists Collab</title>
+        <title>NFTs are $TRASH</title>
       </Head>
       <Box
         sx={{
@@ -247,7 +247,7 @@ export default function Home() {
           </SimpleGrid>
         </header>
         <ToggleImages
-          sx={{ margin: "0 auto", display: "block" }}
+          sx={{ margin: "0 auto", display: "flex" }}
           active={active}
           handleChangeActive={handleChangeActive}
           onClick={() => {
@@ -329,6 +329,23 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
         </Box>
 
         <Box sx={{ display: active ? "block" : "none" }}>
+          <Box  
+            paddingBottom={["16px", "32px"]}
+            sx={{display: "flex", justifyContent: "center", width: "full"}}
+          >
+            <Text 
+              width={["327px", "366px"]}
+              sx={{
+                color: "#72F44A",
+                textTransform: "uppercase",
+                fontFamily: "Roboto Mono",
+                fontWeight: "700",
+                textAlign: "center",
+              }}
+            >
+              An experiment in collective ownership & decentralized curation
+            </Text>
+          </Box>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Image
               className="active"
@@ -677,7 +694,7 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
               <Link
                 href="https://nfts.wtf/what-exactly-is-trash-art/"
                 isExternal
-                color="white"
+                color="#72F44A"
                 _focus={{
                   outline: `none`,
                 }}
@@ -699,7 +716,7 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
               <Link
                 href="https://opensea.io/assets/0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0/7323"
                 isExternal
-                color="white"
+                color="#72F44A"
                 _focus={{
                   outline: `none`,
                 }}
