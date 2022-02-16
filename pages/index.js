@@ -247,7 +247,7 @@ export default function Home() {
           </SimpleGrid>
         </header>
         <ToggleImages
-          sx={{ margin: "0 auto", display: "flex" }}
+          sx={{ margin: "0 auto", display: "block" }}
           active={active}
           handleChangeActive={handleChangeActive}
           onClick={() => {
@@ -383,7 +383,7 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
             </ListItem>
           </UnorderedList>
           <br />
-          <Box sx={{ display: `flex`, flexDirection: `row`, justifyContent: `center`, gap: `2rem` }}>
+          <Box sx={{ display: `flex`, flexDirection: `row`, justifyContent: `center`}}>
             <Button
               sx={{
                 backgroundColor: `#72F44A`,
@@ -391,7 +391,6 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
                 fontSize: `2vmax`,
                 fontFamily: 'Roboto Mono, sans-serif',
                 padding: `8px`,
-                height: `auto`,
                 borderRadius: `unset`
               }}
               _hover={{
@@ -514,11 +513,14 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
                 padding: `4px`,
                 textAlign: "center",
                 fontWeight: `700`,
-                marginRight: `5px`,
+                marginRight: `8px`,
               }}
               onClick={onClose}
               _focus={{
                 outline: `none`,
+              }}
+              _hover={{
+                textDecoration: `none`,
               }}
             >
               Cancel
@@ -533,10 +535,13 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
                 padding: `4px`,
                 textAlign: "center",
                 fontWeight: `700`,
-                marginLeft: `5px`,
+                marginLeft: `8px`,
               }}
               _focus={{
                 outline: `none`,
+              }}
+              _hover={{
+                textDecoration: `none`,
               }}
               href="https://szns.io/explore"
               target="_blank"
@@ -805,7 +810,7 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
               fontFamily: `'Roboto Mono', sans-serif`,
               textTransform: `uppercase`,
               maxHeight: `80vh`,
-              overflowY: `scroll`,
+              overflowY: `auto`,
               width: `full`,
             }}
           >
