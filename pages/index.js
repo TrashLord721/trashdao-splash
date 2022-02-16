@@ -44,6 +44,11 @@ export default function Home() {
     onOpen: onAboutOpen,
     onClose: onAboutClose,
   } = useDisclosure();
+  const {
+    isOpen: isDonateOpen,
+    onOpen: onDonateOpen,
+    onClose: onDonateClose,
+  } = useDisclosure();
 
   // toggle stuff
   const [active, setActive] = useState(false);
@@ -96,10 +101,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>TrashDAO - A Collab by Trash Artists</title>
+        <title>TrashDAO - A Trash Artists Collab</title>
       </Head>
       <Box
         sx={{
+          display: "flex",
+          flexDirection: "column",
           backgroundColor: "black",
           minHeight: `100vh`,
           cursor: `url('/trashmouse.png'), auto`,
@@ -116,12 +123,25 @@ export default function Home() {
                   width: "178px",
                   textAlign: "center",
                 }}
+                _hover={{
+                  backgroundColor: `white`,
+                }}
               >
-                <Link href="/">TrashDAO</Link>
+                <Link
+                  href="/"
+                  _hover={{
+                    textDecoration: `none`,
+                  }}
+                  _focus={{
+                    outline: `none`,
+                  }}
+                >
+                  TrashDAO
+                </Link>
               </Box>
               <br />
-              <Text fontSize="sm" sx={{ color: "#72F44A", fontWeight: "700" }}>
-                A Collab by Trash Artists
+              <Text fontSize="sm" sx={{ color: "#72F44A", fontWeight: "700", width: "178px" }}>
+                A Trash Artists Collab
               </Text>
             </Box>
             <Box
@@ -135,45 +155,52 @@ export default function Home() {
                 <UnorderedList>
                   <Link
                     href="#"
-                    sx={{
-                      width: "86px",
-                      height: "26.57px",
-                      background: "#72F44A",
-                      transform: "rotate(0.64deg)",
-                      margin: "5px",
+                    _focus={{
+                      outline: `none`,
                     }}
                   >
                     <ListItem
+                      marginRight={["0px", "16px"]}
                       sx={{
+                        background: "#72F44A",
+                        width: "87px",
+                        textAlign: "center",
                         display: "inline-block",
                         fontSize: "16px",
                         textTransform: "uppercase",
                         fontWeight: "700",
-                        padding: "5px",
+                        cursor: "pointer",
+                        marginBottom: "16px",
                       }}
-                      onClick={onNftOpen}
+                      _hover={{
+                        backgroundColor: `white`,
+                      }}
+                      onClick={onDonateOpen}
                     >
-                      Swap NFT
+                      Donate
                     </ListItem>
                   </Link>
 
                   <Link
                     href="#"
-                    sx={{
-                      width: "86px",
-                      height: "26.57px",
-                      background: "#72F44A",
-                      transform: "rotate(0.64deg)",
-                      margin: "5px",
+                    _focus={{
+                      outline: `none`,
                     }}
                   >
                     <ListItem
                       sx={{
+                        background: "#72F44A",
+                        width: "87px",
+                        textAlign: "center",
                         display: "inline-block",
                         fontSize: "16px",
                         textTransform: "uppercase",
                         fontWeight: "700",
-                        padding: "5px",
+                        cursor: "pointer",
+                        marginBottom: "16px",
+                      }}
+                      _hover={{
+                        backgroundColor: `white`,
                       }}
                       onClick={onAboutOpen}
                     >
@@ -182,31 +209,39 @@ export default function Home() {
                   </Link>
                 </UnorderedList>
               </Box>
-              <Box>
-                <UnorderedList sx={{ float: "right" }}>
-                  <Link href="https://discord.gg/ySPNt97G7P" target="_blank">
-                    <ListItem sx={{ display: "inline-block", margin: "5px" }}>
-                      <Image
-                        src="/discord.png"
-                        alt="Discord"
-                        width="28.55"
-                        height="21.76"
-                        sx={{ margin: "0 auto", display: "block" }}
-                      />
-                    </ListItem>
-                  </Link>
-                  <Link href="https://twitter.com/Trash_DAO" target="_blank">
-                    <ListItem sx={{ display: "inline-block", margin: "5px" }}>
-                      <Image
-                        src="/twitter.png"
-                        alt="Twitter"
-                        width="25.5"
-                        height="20.55"
-                        sx={{ margin: "0 auto", display: "block" }}
-                      />
-                    </ListItem>
-                  </Link>
-                </UnorderedList>
+              <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "end" }}>
+                <Link
+                  href="https://discord.gg/ySPNt97G7P"
+                  target="_blank"
+                  _focus={{
+                    outline: `none`,
+                  }}>
+                  <Image
+                    src="/discord.png"
+                    alt="Discord"
+                    width="28.55"
+                    height="21.76"
+                    sx={{ marginRight: "16px", cursor: "pointer" }}
+                  />
+                </Link>
+                <Link
+                  href="https://twitter.com/Trash_DAO"
+                  target="_blank"
+                  _focus={{
+                    outline: `none`,
+                  }}
+                >
+                  <Image
+                    src="/twitter.png"
+                    alt="Twitter"
+                    width="25.5"
+                    height="20.55"
+                    sx={{ cursor: "pointer" }}
+                    _focus={{
+                      outline: `none`,
+                    }}
+                  />
+                </Link>
               </Box>
             </Box>
           </SimpleGrid>
@@ -218,8 +253,28 @@ export default function Home() {
           onClick={() => {
             handleClick();
           }}
-          copyAddress={CopyAddress}
+          isOpen={isNftOpen}
+          onOpen={onNftOpen}
+          onClose={onNftClose}
         />
+        <Box
+          paddingBottom={["16px", "32px"]}
+          sx={{
+            color: "#72F44A",
+            textAlign: "end",
+            fontFamily: "Roboto Mono, sans-serif",
+            fontSize: "12px",
+            paddingRight: "25px",
+            width: "full",
+          }}
+        >
+          <Link
+            href="https://szns.io"
+            target="#blank"
+          >
+            Powered by SZNS
+          </Link>
+        </Box>
         <audio id="song" src="/trashsong.mp3"></audio>
       </Box>
       <SwapNFTModal
@@ -232,87 +287,107 @@ export default function Home() {
         onOpen={onAboutOpen}
         onClose={onAboutClose}
       />
+      <DonateModal
+        isOpen={isDonateOpen}
+        onOpen={onDonateOpen}
+        onClose={onDonateClose}
+        copyAddress={CopyAddress}
+      />
     </>
   );
 }
 
-function ToggleImages({ active, handleChangeActive, onClick, copyAddress }) {
+function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
   return (
     <>
-      <Box className="toggle-wrapper" onClick={onClick} sx={{ width: `100%` }}>
-        <Box>
-          <Image
-            className="inactive"
-            src="/Trash.gif"
-            onClick={() => handleChangeActive()}
-            width="470"
-            height="596"
-            sx={{ display: active ? "none" : "block" }}
-            alt=""
-          />
-          <Box sx={{ display: active ? "block" : "none" }}>
+      <Box className="toggle-wrapper" onClick={onClick} sx={{ display: "flex", flexDirection: "column", flexGrow: "1" }}>
+        <Box className="inactive" sx={{ display: active ? "none" : "block" }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Image
+              src="/Trash.gif"
+              onClick={() => handleChangeActive()}
+              width={['90%', '40%']}
+              sx={{ cursor: `pointer` }}
+              alt=""
+            />
+            <Text
+              sx={{
+                color: "#06FA1D",
+                fontFamily: "Roboto Mono",
+                fontWeight: `700`,
+                fontSize: `24px`,
+                textTransform: "uppercase",
+                position: "absolute",
+                top: "59%",
+                cursor: `pointer`,
+              }}
+              onClick={() => handleChangeActive()}
+            >
+              Got Trash?
+            </Text>
+          </Box>
+        </Box>
+
+        <Box sx={{ display: active ? "block" : "none" }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Image
               className="active"
               src="/jd-collab-edit.gif"
-              width="470"
-              height="596"
+              width={['90%', '40%']}
               alt=""
             />
-            <br />
-            <UnorderedList
+          </Box>
+          <br />
+          <UnorderedList
+            sx={{
+              color: `#72F44A`,
+              fontFamily: `Roboto Mono`,
+              fontWeight: `700`,
+              fontSize: `16px`,
+              textAlign: `center`,
+              listStyle: `none`,
+              marginLeft: '0px'
+            }}
+          >
+            <ListItem sx={{ display: `inline-block`, marginRight: `5px` }}>
+              <Link href="https://twitter.com/Jay_Delay" isExternal _hover={{
+                textDecoration: `none`,
+              }}>
+                JAYDELAY
+              </Link>
+            </ListItem>
+            <ListItem sx={{ display: `inline-block` }}>•</ListItem>
+            <ListItem sx={{ display: `inline-block`, marginLeft: `5px` }}>
+              <Link href="https://twitter.com/bitttylabs" isExternal _hover={{
+                textDecoration: `none`,
+              }}>
+                BITTTY
+              </Link>
+            </ListItem>
+          </UnorderedList>
+          <br />
+          <Box sx={{ display: `flex`, flexDirection: `row`, justifyContent: `center`, gap: `2rem` }}>
+            <Button
               sx={{
-                color: `#72F44A`,
-                fontFamily: `Roboto Mono`,
-                fontWeight: `700`,
-                fontSize: `16px`,
-                textAlign: `center`,
-                listStyle: `none`,
+                backgroundColor: `#72F44A`,
+                color: `black`,
+                fontSize: `2vmax`,
+                fontFamily: 'Roboto Mono, sans-serif',
+                padding: `8px`,
+                height: `auto`,
+                borderRadius: `unset`
               }}
+              _hover={{
+                backgroundColor: `white`,
+                transform: `translateY(-8px)`,
+              }}
+              _focus={{
+                outline: `none`,
+              }}
+              onClick={onOpen}
             >
-              <ListItem sx={{ display: `inline-block`, marginRight: `5px` }}>
-                <Link href="https://twitter.com/Jay_Delay" isExternal>
-                  JAYDELAY
-                </Link>
-              </ListItem>
-              <ListItem sx={{ display: `inline-block` }}>•</ListItem>
-              <ListItem sx={{ display: `inline-block`, marginLeft: `5px` }}>
-                <Link href="https://twitter.com/bitttylabs" isExternal>
-                  BITTTY
-                </Link>
-              </ListItem>
-            </UnorderedList>
-            <br />
-            <Box sx={{ display: `flex`, flexDirection: `column`, gap: `2rem` }}>
-              <Button
-                sx={{
-                  backgroundColor: `#72F44A`,
-                  color: `black`,
-                  fontSize: `2vmax`,
-                  padding: `1ex 1em`,
-                  height: `auto`,
-                }}
-                _hover={{
-                  backgroundColor: `white`,
-                  transform: `translateY(-8px)`,
-                  boxShadow: `0px 8px 0px #72F44A`,
-                }}
-                onClick={() => copyAddress()}
-              >
-                donate
-              </Button>
-              <Text
-                sx={{
-                  color: `white`,
-                  maxWidth: `40ch`,
-                  margin: `2ex auto`,
-                  fontFamily: `'Roboto Mono', serif`,
-                }}
-              >
-                Clicking &apos;Donate&apos; will copy a multisig address to your
-                clipboard. Transfer whichever tokens you like there from your
-                wallet.
-              </Text>
-            </Box>
+              SWAP NFT
+            </Button>
           </Box>
         </Box>
       </Box>
@@ -323,10 +398,11 @@ function ToggleImages({ active, handleChangeActive, onClick, copyAddress }) {
 function SwapNFTModal({ isOpen, onOpen, onClose }) {
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent
           width={[`100%`, `50%`]}
+          height={'80vh'}
           sx={{
             backgroundColor: `#E45050`,
             border: `2px solid white`,
@@ -335,43 +411,62 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
             maxWidth: `100vw`,
           }}
         >
-          <ModalHeader
+          <Box
+            paddingX={["16px", "32px"]}
             sx={{
-              color: `#FFEE04`,
-              textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
-              fontSize: `4vmax`,
-              textAlign: `center`,
-              fontFamily: `'Epilogue', sans-serif`,
+              display: "flex",
+              flexDirection: "row",
             }}
           >
-            SWAP NFT!
-          </ModalHeader>
-          <Image
-            src="/clickerthinger.png"
-            sx={{
-              position: `absolute`,
-              top: `0px`,
-              right: `0px`,
-              padding: `50px 25px 0px 0px`,
-            }}
-            onClick={onClose}
-            alt=""
-          />
+            <Text
+              paddingTop={["16px", "32px"]}
+              sx={{
+                color: `#FFEE04`,
+                textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
+                fontSize: `6vmax`,
+                textAlign: `center`,
+                fontFamily: `'Epilogue', sans-serif`,
+                width: "full"
+              }}
+            >
+              SWAP NFT!
+            </Text>
+            <Image
+              src="/clickerthinger.png"
+              alt=""
+              onClick={onClose}
+              width="25px"
+              height="27px"
+              placeSelf={"center"}
+              marginLeft={["16px", "36px"]}
+            />
+          </Box>
           <ModalBody
             sx={{
               letterSpacing: `.1em`,
-              textShadow: `0px 3px 5px 0px #00000040;`,
+              textShadow: `0px 3px 5px rgba(0,0,0,0.25)`,
               lineHeight: `23px`,
               fontSize: `20px`,
-              width: [`100%`, `60%`],
-              margin: `0 auto`,
+              fontFamily: "Roboto Mono",
+              width: "full",
+              overflowY: 'auto',
             }}
           >
             <Text>
               Trash DAO is an experiment in decentralized governance and art.
-              Continue to learn more, join the community (link discord trash
-              category), and trade your NFTs for $TRASH.
+              Continue to learn more, {" "}
+              <Link
+                href="https://discord.gg/KrAhqrT8"
+                isExternal
+                color="#FFEE04"
+                _focus={{
+                  outline: `none`,
+                }}
+              >
+                join the community
+              </Link>, and trade your NFTs for $TRASH.
             </Text>
+            <br />
             <Heading
               sx={{
                 letterSpacing: ".1em",
@@ -384,14 +479,13 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
             </Heading>
             <Text>
               While the contracts have been reviewed by an experienced solidity
-              developer, there are always risks in smart contracts having
-              issues. By interacting with this smart contract you accept this
-              risk and absolve the developers, community members, and website
-              host of all responsibility.
+              developer, there are always risks in smart contracts. Smart contracts
+              are still new and experimental technology. By interacting with this smart
+              contract you accept this risk and absolve the developers, community members, 
+              and website host of all responsibility.
             </Text>
             <br />
           </ModalBody>
-
           <ModalFooter sx={{ margin: `0 auto` }}>
             <Link
               sx={{
@@ -401,12 +495,14 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
                 color: `#E45050`,
                 boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`,
                 padding: `4px`,
-                width: "105px",
                 textAlign: "center",
                 fontWeight: `700`,
                 marginRight: `5px`,
               }}
               onClick={onClose}
+              _focus={{
+                outline: `none`,
+              }}
             >
               Cancel
             </Link>
@@ -418,10 +514,12 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
                 color: `#E45050`,
                 boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`,
                 padding: `4px`,
-                width: "105px",
                 textAlign: "center",
                 fontWeight: `700`,
                 marginLeft: `5px`,
+              }}
+              _focus={{
+                outline: `none`,
               }}
               href="https://szns.io/explore"
               target="_blank"
@@ -438,11 +536,11 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
 function BasicUsage({ isOpen, onOpen, onClose }) {
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent
           width={[`100%`, `50%`]}
-          height={`80vh`}
+          height={[`80vh`, '90vh']}
           sx={{
             backgroundColor: `black`,
             border: `2px solid white`,
@@ -451,31 +549,43 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
             maxWidth: `100vw`,
           }}
         >
-          <Image
-            src="/clickerthinger.png"
+          <Box
+            paddingX={["16px", "32px"]}
             sx={{
-              position: `absolute`,
-              top: `0px`,
-              right: `0px`,
-              padding: `50px 25px 0px 0px`,
-              zIndex: "9",
+              display: "flex",
+              flexDirection: "row"
             }}
-            alt=""
-            onClick={onClose}
-          />
-          <Marquee gradientWidth="0" speed="100">
-            <Text
-              sx={{
-                color: `#72F44A`,
-                textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
-                fontSize: `4vmax`,
-                textAlign: `center`,
-                fontFamily: `'Epilogue', sans-serif`,
-              }}
+          >
+            <Marquee gradientWidth="0" speed="100">
+              <Text
+                paddingTop={["16px", "32px"]}
+                sx={{
+                  color: `#72F44A`,
+                  textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
+                  fontSize: `6vmax`,
+                  fontFamily: `'Epilogue', sans-serif`,
+                  marginRight: `15px`,
+                }}
+              >
+                ABOUT ABOUT ABOUT ABOUT ABOUT
+              </Text>
+            </Marquee>
+            <Box
+              as="button"
+              onClick={onClose}
+              placeSelf={"center"}
             >
-              ABOUT ABOUT ABOUT ABOUT ABOUT ABOUT
-            </Text>
-          </Marquee>
+              <Image
+                src="/clickerthinger.png"
+                alt=""
+                onClick={onClose}
+                width="25px"
+                height="27px"
+                marginLeft={["16px", "36px"]}
+              />
+            </Box>
+
+          </Box>
           <ModalBody
             sx={{
               letterSpacing: `.1em`,
@@ -484,9 +594,8 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
               fontSize: `20px`,
               textTransform: `uppercase`,
               maxHeight: `80vh`,
-              overflowY: `scroll`,
-              width: [`100%`, `60%`],
-              margin: `15px auto`,
+              overflowY: `auto`,
+              width: `full`,
             }}
           >
             <Heading>
@@ -495,16 +604,15 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
             <br />
             <Text>
               Some believe NFTs are trash. Others believe trash is art. We
-              believe it can be all. Value can be subjective, and we get to
-              collectively decide in what we place value to. One element
-              TrashDAO is experimenting with is decentrally curated image
-              practices. Street art or graffiti is a close IRL version of this
-              case in point, but we’d like to play with this concept in crypto.{" "}
-            </Text>
-            <br />
-            <Text>
-              Each indivual adding an NFT to the ‘trashpile’ is curating and
-              therefore adding to the visual dialougue that is TrashDAO.
+              believe it can be all. 
+              <br /><br />
+              Value can be subjective, and we get to collectively decide in
+              what we place value to. One element TrashDAO is experimenting with
+              is decentralizing curated image practices. Curation has historically
+              been a centralized process involving a few key individuals within the
+              confines of esteemed institutions. With TrashDAO, each individual adding
+              an NFT to the ‘trashpile’ is curating and therefore adding value to the
+              visual dialogue that is TrashDAO. 
             </Text>
             <br />
             <Heading>How is TrashDAO fostering collective ownership?</Heading>
@@ -516,6 +624,11 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
               the limits and possibilities of truly decentralized coordination
               via tokenholder voting that gets executed on-chain without
               trusting a simple multisig of owners.
+            </Text>
+            <br />
+            <Text>
+              DAO token holders vote to determine the direction of the project to
+              create an evolving and living work of TRASH ART.
             </Text>
             <br />
             <Heading>TrashDAO Tokenomics and Album Governance</Heading>
@@ -534,37 +647,40 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
             <br />
             <br />
             <Text>
-              $TRASH does not have any prior determined allocations. It is truly
-              a decentralized approach to tokenomics. At time of launch, the
-              only way of acquiring $TRASH is via depositing trash to the Trash
-              DAO. Swap any NFT from the qualified contracts and recieve 69
-              $TRASH tokens in return. Using the SZNS interface, TrashDAO
-              members can make other standardized proposals as a DAO member.
+              $TRASH does not have any prior determined allocations and is 100%
+              minted by the community. It is truly a decentralized “fair launch”
+              approach to tokenomics. At time of launch, the only way of acquiring
+              $TRASH is via depositing trash to the TrashDAO. Swap any NFT from the
+              qualified contracts and receive 69 $TRASH tokens in return. Using the SZNS
+              interface, TrashDAO members can make other standardized proposals
+              as a DAO member.
             </Text>
             <br />
             <Text>
-              The tokenomics are vague and equal for a reason. We implore the
-              community to shape the DAO as they desire and submit
-              proposals(link) with SZNS. For example, a proposal to award users
-              with even more $TRASH based on certain NFTs, deposit a non-trash
-              NFT (or is it still trash) such as a Bored Ape, and receives
-              $42069 TRASH in return, Uncap the total supply? The possibilities
-              are endless.{" "}
+              The tokenomics are vague and equal for a reason. And the future of the
+              project is unwritten. We implore the community to shape the DAO as they
+              desire and submit proposals with SZNS. For example, a proposal to award users
+              with even more $TRASH based on certain NFTs, deposit a non-trash NFT (or is
+              it still trash) such as a Bored Ape, and receives 42069 $TRASH in return.
+              Uncap the total supply? The possibilities are endless.
             </Text>
             <br />
             <Heading>
-              Inspiration from the Trash Art Movement (uncertain about this
-              part){" "}
+              Inspiration from the Trash Art Movement
             </Heading>
             <br />
             <Text>
               Artistic inspiration for the TrashDAO effort comes from visions
-              created in the Trash Art community, legends like Jay Delay and
+              created in the TRASH ART community, legends like Jay Delay and
               projects such as Rats.Art. There is existing literature around the
               Crypto Trash Art movement, but to summarize,{" "}
               <Link
                 href="https://nfts.wtf/what-exactly-is-trash-art/"
                 isExternal
+                color="white"
+                _focus={{
+                  outline: `none`,
+                }}
               >
                 Trash Art
               </Link>{" "}
@@ -579,8 +695,17 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
             </Text>
             <br />
             <Text>
-              The meme: Robness’ The 64-gallon toter(link) became the memetic
-              symbol of the movement.{" "}
+              The meme: Robness’ {" "}
+              <Link
+                href="https://opensea.io/assets/0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0/7323"
+                isExternal
+                color="white"
+                _focus={{
+                  outline: `none`,
+                }}
+              >
+                The 64-gallon toter
+              </Link>{" "} became the memetic symbol of the movement.
             </Text>
             <br />
             <Text>
@@ -594,13 +719,116 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
             <br />
             <Text>
               There is a dedicated list of NFTs defined in the Bounty Board
-              contract (link) to prevent spam and aggressive minting of $TRASH.
+              contract to prevent spam and aggressive minting of $TRASH.
               The DAO only accepts qualified ETH Mainnet ERC721s at launch.
               Proceed at your own risk and DYOR. The contract has been examined
               by big brain solidity folks, but no official audit has been
               performed!
             </Text>
           </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}
+
+function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
+  return (
+    <>
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent
+          width={[`100%`, `50%`]}
+          sx={{
+            backgroundColor: `black`,
+            border: `2px solid white`,
+            borderRadius: "0px",
+            color: `#E332F0`,
+            maxWidth: `100vw`,
+          }}
+        >
+          <Box
+            paddingX={["16px", "32px"]}
+            sx={{
+              display: "flex",
+              flexDirection: "row"
+            }}
+          >
+            <Marquee gradientWidth="0" speed="100">
+              <Text
+                paddingTop={["16px", "32px"]}
+                sx={{
+                  color: `#72F44A`,
+                  textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
+                  fontSize: `6vmax`,
+                  textAlign: `center`,
+                  fontFamily: `'Epilogue', sans-serif`,
+                  marginRight: `15px`,
+                }}
+              >
+                DONATE DONATE DONATE DONATE DONATE
+              </Text>
+            </Marquee>
+            <Image
+              src="/clickerthinger.png"
+              alt=""
+              onClick={onClose}
+              width="25px"
+              height="27px"
+              placeSelf={"center"}
+              marginLeft={["16px", "36px"]}
+            />
+          </Box>
+          <ModalBody
+            sx={{
+              letterSpacing: `.1em`,
+              textShadow: `0px 3px 5px 0px #00000040;`,
+              lineHeight: `23px`,
+              fontSize: `16px`,
+              fontFamily: `'Roboto Mono', sans-serif`,
+              textTransform: `uppercase`,
+              maxHeight: `80vh`,
+              overflowY: `scroll`,
+              width: `full`,
+            }}
+          >
+            <Text>
+              CLICKING DONATE WILL COPY A MULTISIG ADDRESS TO YOUR CLIPBOARD.
+            </Text>
+            <br />
+            <Text>
+              TRANSFER WHICHEVER TOKENS YOU LIKE THERE FROM YOUR WALLET.
+            </Text>
+            <br />
+            <Text>
+              DONATIONS WILL BE USED TO SUPPORT ARTISTS INVOLVED IN THE PROJECT.
+            </Text>
+            <br />
+          </ModalBody>
+          <ModalFooter
+            sx={{ margin: `0 auto` }}
+            paddingBottom={["32px", "64px"]}
+          >
+            <Button
+              sx={{
+                backgroundColor: "#72F44A",
+                borderRadius: `25px`,
+                textTransform: `uppercase`,
+                color: `#E332F0`,
+                boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`,
+                padding: `4px`,
+                textAlign: "center",
+                fontWeight: `700`,
+                marginLeft: `5px`,
+              }}
+              _focus={{
+                outline: `none`,
+              }}
+              onClick={copyAddress}
+            >
+              COPY ADDRESS
+            </Button>
+          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
