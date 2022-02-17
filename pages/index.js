@@ -543,7 +543,7 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               _hover={{
                 textDecoration: `none`,
               }}
-              href="https://szns.io/explore"
+              href="https://szns.io/album/trashdao"
               target="_blank"
             >
               Continue
