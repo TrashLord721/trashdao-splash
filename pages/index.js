@@ -4,6 +4,7 @@ import {
   SimpleGrid,
   Text,
   Image,
+  IconButton,
   Button,
   ButtonGroup,
   List,
@@ -596,20 +597,26 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
                 ABOUT ABOUT ABOUT ABOUT ABOUT
               </Text>
             </Marquee>
-            <Box
-              as="button"
+            <IconButton
+              colorScheme="black"
               onClick={onClose}
               placeSelf={"center"}
-            >
-              <Image
+              marginLeft={["16px", "36px"]}
+              _focus={{
+                outline: `none`,
+              }}
+              icon={<Image
                 src="/clickerthinger.png"
                 alt=""
                 onClick={onClose}
                 width="25px"
                 height="27px"
-                marginLeft={["16px", "36px"]}
-              />
-            </Box>
+                _hover={{
+                  cursor: `pointer`,
+                }}
+              />}
+            >
+            </IconButton>
 
           </Box>
           <ModalBody
