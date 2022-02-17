@@ -456,6 +456,9 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               height="27px"
               placeSelf={"center"}
               marginLeft={["16px", "36px"]}
+              _hover={{
+                cursor: `pointer`,
+              }}
             />
           </Box>
           <ModalBody
@@ -800,6 +803,9 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
               height="27px"
               placeSelf={"center"}
               marginLeft={["16px", "36px"]}
+              _hover={{
+                cursor: `pointer`,
+              }}
             />
           </Box>
           <ModalBody
