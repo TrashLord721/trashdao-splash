@@ -102,6 +102,7 @@ export default function Home() {
     <>
       <Head>
         <title>NFTs are $TRASH</title>
+        <meta property="og:image" content="/Trash.gif"></meta>
       </Head>
       <Box
         sx={{
