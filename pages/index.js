@@ -4,6 +4,7 @@ import {
   SimpleGrid,
   Text,
   Image,
+  IconButton,
   Button,
   ButtonGroup,
   List,
@@ -456,6 +457,9 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               height="27px"
               placeSelf={"center"}
               marginLeft={["16px", "36px"]}
+              _hover={{
+                cursor: `pointer`,
+              }}
             />
           </Box>
           <ModalBody
@@ -593,20 +597,26 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
                 ABOUT ABOUT ABOUT ABOUT ABOUT
               </Text>
             </Marquee>
-            <Box
-              as="button"
+            <IconButton
+              colorScheme="black"
               onClick={onClose}
               placeSelf={"center"}
-            >
-              <Image
+              marginLeft={["16px", "36px"]}
+              _focus={{
+                outline: `none`,
+              }}
+              icon={<Image
                 src="/clickerthinger.png"
                 alt=""
                 onClick={onClose}
                 width="25px"
                 height="27px"
-                marginLeft={["16px", "36px"]}
-              />
-            </Box>
+                _hover={{
+                  cursor: `pointer`,
+                }}
+              />}
+            >
+            </IconButton>
 
           </Box>
           <ModalBody
@@ -800,6 +810,9 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
               height="27px"
               placeSelf={"center"}
               marginLeft={["16px", "36px"]}
+              _hover={{
+                cursor: `pointer`,
+              }}
             />
           </Box>
           <ModalBody
