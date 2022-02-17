@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Roboto Mono", monospace;
-  cursor: url("/trashmouse.png"), auto;
+  cursor: url("/trash-cursor.png") 14 0, auto;
 }
 
 button {
@@ -21,7 +21,7 @@ a {
 
 * {
   box-sizing: border-box;
-  cursor: url("/trashmouse.png"), auto;
+  cursor: url("/trash-cursor.png") 14 0, auto;
 }
 
 html {

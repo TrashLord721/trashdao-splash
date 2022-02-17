@@ -111,7 +111,6 @@ export default function Home() {
           flexDirection: "column",
           backgroundColor: "black",
           minHeight: `100vh`,
-          cursor: `url('/trashmouse.png'), auto`,
           minWidth: `100vw`,
         }}
       >
