@@ -547,7 +547,7 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               _hover={{
                 textDecoration: `none`,
               }}
-              href="https://szns.io/album/trashdao"
+              href="https://szns.io/album/trashdao/bounty_board"
               target="_blank"
             >
               Continue
