@@ -837,7 +837,7 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
             </Text>
             <br />
             <Text>
-            SWAP NFTS FOR $TRASH AT THE 
+            SWAP NFTS FOR $TRASH AT THE
               <Link
                 href="https://szns.io/album/trashdao/bounty_board"
                 isExternal
@@ -847,7 +847,7 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
                 }}
               >
                 BOUNTY BOARD
-              </Link>.
+              </Link> {" "}.
             </Text>
             <br />
           </ModalBody>
