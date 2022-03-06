@@ -818,7 +818,7 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
             }}
           >
             <Text>
-              CLICKING DONATE WILL COPY A MULTISIG ADDRESS TO YOUR CLIPBOARD.
+              CLICKING DONATE WILL COPY AN ADDRESS TO YOUR CLIPBOARD.
             </Text>
             <br />
             <Text>
@@ -826,7 +826,21 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
             </Text>
             <br />
             <Text>
-              DONATIONS WILL BE USED TO SUPPORT ARTISTS INVOLVED IN THE PROJECT.
+              DONATIONS WILL SUPPORT ARTISTS INVOLVED IN THE PROJECT.
+            </Text>
+            <br />
+            <Text>
+            SWAP NFTS FOR $TRASH AT THE
+              <Link
+                href="https://szns.io/album/trashdao/bounty_board"
+                isExternal
+                color="#FFEE04"
+                _focus={{
+                  outline: `none`,
+                }}
+              >
+                BOUNTY BOARD
+              </Link>.
             </Text>
             <br />
           </ModalBody>
