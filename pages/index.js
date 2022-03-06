@@ -473,18 +473,8 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
             }}
           >
             <Text>
-              Trash DAO is an experiment in decentralized governance and art.
-              Continue to learn more, {" "}
-              <Link
-                href="https://discord.gg/KrAhqrT8"
-                isExternal
-                color="#FFEE04"
-                _focus={{
-                  outline: `none`,
-                }}
-              >
-                join the community
-              </Link>, and trade your NFTs for $TRASH.
+              Trash DAO is an art and governance experiment.
+              Continue to swap NFTs for $TRASH!, {" "}
             </Text>
             <br />
             <Heading
