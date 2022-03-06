@@ -477,7 +477,7 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
             </Text>
             <br />
             <Text>
-              Click continue to swap NFTs for $TRASH! {" "}
+              Click continue to swap NFTs for $TRASH!
             </Text>
             <br />
             <Text>
