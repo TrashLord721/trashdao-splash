@@ -466,21 +466,28 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               letterSpacing: `.1em`,
               textShadow: `0px 3px 5px rgba(0,0,0,0.25)`,
               lineHeight: `23px`,
-              fontSize: `20px`,
+              fontSize: `30px`,
               fontFamily: "Roboto Mono",
               width: "full",
               overflowY: 'auto',
             }}
           >
             <Text>
-              Trash DAO is an art and governance experiment.
-              Continue to swap NFTs for $TRASH!, {" "}
+              TRASHDAO IS AN ART AND GOVERNANCE EXPERIMENT.
+            </Text>
+            <br />
+            <Text>
+              Click continue to swap NFTs for $TRASH! {" "}
+            </Text>
+            <br />
+            <Text>
+              CONFIRM THE URL LEADS TO SZNS.IO/ALBUM/TRASHDAO/BOUNTY_BOARD BEFORE SWAPPING.
             </Text>
             <br />
             <Heading
               sx={{
                 letterSpacing: ".1em",
-                fontSize: "20px",
+                fontSize: "12px",
                 textDecoration: `underline`,
                 padding: `10px 0px`,
               }}
