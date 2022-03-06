@@ -466,7 +466,7 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
               letterSpacing: `.1em`,
               textShadow: `0px 3px 5px rgba(0,0,0,0.25)`,
               lineHeight: `23px`,
-              fontSize: `30px`,
+              fontSize: `23px`,
               fontFamily: "Roboto Mono",
               width: "full",
               overflowY: 'auto',
@@ -487,7 +487,7 @@ function SwapNFTModal({ isOpen, onOpen, onClose }) {
             <Heading
               sx={{
                 letterSpacing: ".1em",
-                fontSize: "12px",
+                fontSize: "20px",
                 textDecoration: `underline`,
                 padding: `10px 0px`,
               }}
@@ -837,7 +837,7 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
             </Text>
             <br />
             <Text>
-            SWAP NFTS FOR $TRASH AT THE
+            SWAP NFTS FOR $TRASH AT THE 
               <Link
                 href="https://szns.io/album/trashdao/bounty_board"
                 isExternal
