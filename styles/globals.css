@@ -9,9 +9,9 @@ body {
 }
 
 button {
-  background:yellow;
-  height:50px;
-  width:50px;
+  background: yellow;
+  height: 50px;
+  width: 50px;
 }
 
 a {
@@ -29,10 +29,20 @@ html {
 }
 
 .toggle-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 25px;
+}
+
+.trash-container {
+  width: 750px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#trash-bag {
+  width: 500px;
 }
 
 .logo a {
@@ -54,7 +64,7 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #72F44A;
+  background: #72f44a;
 }
 
 /* Handle on hover */
