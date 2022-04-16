@@ -22,19 +22,16 @@ import {
   ModalBody,
   ModalCloseButton,
   Heading,
+  Grid,
+  GridItem,
+  Divider,
 } from "@chakra-ui/react";
 import { useState, useEffect, useRef } from "react";
 import Marquee from "react-fast-marquee";
 import toast from "react-hot-toast";
+import Columned from "react-columned";
 
 export default function Home() {
-  const CopyAddress = async () => {
-    const res = await navigator.clipboard.writeText(
-      "0x2Ea988868c0575a5803e841291B605BAfAD0A9cD"
-    );
-    toast.success("Address In Clipboard");
-  };
-
   // toggle stuff
   const [active, setActive] = useState(false);
 
@@ -83,6 +80,9 @@ export default function Home() {
     console.log("song ended!");
   };
 
+  {
+    /* Main Container */
+  }
   return (
     <>
       <Head>
@@ -127,13 +127,11 @@ export default function Home() {
     </>
   );
 }
+{
+  /* End Main Container */
+}
 
 function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
-  const {
-    isOpen: isNftOpen,
-    onOpen: onNftOpen,
-    onClose: onNftClose,
-  } = useDisclosure();
   const {
     isOpen: isAboutOpen,
     onOpen: onAboutOpen,
@@ -145,6 +143,13 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
     onClose: onDonateClose,
   } = useDisclosure();
 
+  const CopyAddress = async () => {
+    const res = await navigator.clipboard.writeText(
+      "0x2Ea988868c0575a5803e841291B605BAfAD0A9cD"
+    );
+    toast.success("Address In Clipboard");
+  };
+
   return (
     <>
       <Box
@@ -152,11 +157,6 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
         onClick={onClick}
         sx={{ display: "flex", flexDirection: "column", flexGrow: "1" }}
       >
-        <SwapNFTModal
-          isOpen={isNftOpen}
-          onOpen={onNftOpen}
-          onClose={onNftClose}
-        />
         <BasicUsage
           isOpen={isAboutOpen}
           onOpen={onAboutOpen}
@@ -166,6 +166,7 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
           isOpen={isDonateOpen}
           onOpen={onDonateOpen}
           onClose={onDonateClose}
+          copyAddress={CopyAddress}
         />
 
         {/* Before Trash Bag Explodes */}
@@ -234,6 +235,8 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
                   sx={{ color: "#72F44A", fontWeight: "700", width: "178px" }}
                 >
                   A Trash Artists Collab
+                  <br />
+                  Powered by SZNS
                 </Text>
               </Box>
               <Box
@@ -244,6 +247,7 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
                 }}
               >
                 <Box>
+                  {/* navigation */}
                   <UnorderedList>
                     <Link
                       href="#"
@@ -251,24 +255,28 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
                         outline: `none`,
                       }}
                     >
-                      <ListItem
-                        marginRight={["0px", "16px"]}
-                        sx={{
-                          background: "#72F44A",
-                          width: "87px",
-                          textAlign: "center",
-                          display: "inline-block",
-                          fontSize: "16px",
-                          textTransform: "uppercase",
-                          fontWeight: "700",
-                          cursor: "pointer",
-                          marginBottom: "16px",
-                        }}
-                        _hover={{
-                          backgroundColor: `white`,
-                        }}
-                        onClick={onDonateOpen}
-                      >
+                      <ListItem className="nav-link" onClick={onDonateOpen}>
+                        FAQ
+                      </ListItem>
+                    </Link>
+                    <Link
+                      href="#"
+                      _focus={{
+                        outline: `none`,
+                      }}
+                    >
+                      <ListItem className="nav-link" onClick={onAboutOpen}>
+                        About
+                      </ListItem>
+                    </Link>
+
+                    <Link
+                      href="#"
+                      _focus={{
+                        outline: `none`,
+                      }}
+                    >
+                      <ListItem className="nav-link" onClick={onDonateOpen}>
                         Donate
                       </ListItem>
                     </Link>
@@ -279,27 +287,12 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
                         outline: `none`,
                       }}
                     >
-                      <ListItem
-                        sx={{
-                          background: "#72F44A",
-                          width: "87px",
-                          textAlign: "center",
-                          display: "inline-block",
-                          fontSize: "16px",
-                          textTransform: "uppercase",
-                          fontWeight: "700",
-                          cursor: "pointer",
-                          marginBottom: "16px",
-                        }}
-                        _hover={{
-                          backgroundColor: `white`,
-                        }}
-                        onClick={onAboutOpen}
-                      >
+                      <ListItem className="nav-link" onClick={onDonateOpen}>
                         About
                       </ListItem>
                     </Link>
                   </UnorderedList>
+                  {/* navigation */}
                 </Box>
                 <Box
                   sx={{
@@ -347,244 +340,154 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
           </header>
 
           {/* Start Trash Container */}
-          <Box class="trash-container">
-            <Box
-              paddingBottom={["16px", "32px"]}
-              sx={{ display: "flex", justifyContent: "center", width: "full" }}
-            >
-              <Text
-                width={["327px", "366px"]}
-                sx={{
-                  color: "#72F44A",
-                  textTransform: "uppercase",
-                  fontFamily: "Roboto Mono",
-                  fontWeight: "700",
-                  textAlign: "center",
-                }}
-              >
-                An experiment in collective ownership & decentralized curation
-              </Text>
-            </Box>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
+
+          {/* Grid time baby */}
+          <SimpleGrid id="trash-pillar" columns={3} spacing={5}>
+            <Box sx={{ margin: `0 auto` }}>
               <Image
                 className="active"
                 src="/jd-collab-edit.gif"
-                id="trash-bag"
-                width={["90%", "40%"]}
+                id="exploded-trash-bag"
                 alt=""
               />
             </Box>
-            <br />
-            <UnorderedList
-              sx={{
-                color: `#72F44A`,
-                fontFamily: `Roboto Mono`,
-                fontWeight: `700`,
-                fontSize: `16px`,
-                textAlign: `center`,
-                listStyle: `none`,
-                marginLeft: "0px",
-              }}
-            >
-              <ListItem sx={{ display: `inline-block`, marginRight: `5px` }}>
-                <Link
-                  href="https://twitter.com/Jay_Delay"
-                  isExternal
-                  _hover={{
-                    textDecoration: `none`,
-                  }}
-                >
-                  JAYDELAY
-                </Link>
-              </ListItem>
-              <ListItem sx={{ display: `inline-block` }}>•</ListItem>
-              <ListItem sx={{ display: `inline-block`, marginLeft: `5px` }}>
-                <Link
-                  href="https://twitter.com/bitttylabs"
-                  isExternal
-                  _hover={{
-                    textDecoration: `none`,
-                  }}
-                >
-                  BITTTY
-                </Link>
-              </ListItem>
-            </UnorderedList>
-            <br />
-            <Box
-              sx={{
-                display: `flex`,
-                flexDirection: `row`,
-                justifyContent: `center`,
-              }}
-            >
-              <Button
+            <Box sx={{ textAlign: `center`, color: `#72f44a` }}>
+              <Heading sx={{ color: `#72f44a` }}>NFTs are $TRASH</Heading>
+              <Heading as="h4" size="sm">
+                Swap any* NFT for 69 $TRASH
+              </Heading>
+              <Box
                 sx={{
-                  backgroundColor: `#72F44A`,
-                  color: `black`,
-                  fontSize: `2vmax`,
-                  fontFamily: "Roboto Mono, sans-serif",
-                  padding: `8px`,
-                  borderRadius: `unset`,
+                  marginTop: `50px`,
+                  display: `flex`,
+                  flexDirection: `row`,
+                  justifyContent: `center`,
                 }}
-                _hover={{
-                  backgroundColor: `white`,
-                  transform: `translateY(-8px)`,
-                }}
-                _focus={{
-                  outline: `none`,
-                }}
-                onClick={onOpen}
               >
-                SWAP NFT
-              </Button>
+                <Button
+                  sx={{
+                    backgroundColor: `#72F44A`,
+                    color: `black`,
+                    fontSize: `1.5em`,
+                    fontFamily: "Roboto Mono, sans-serif",
+                    margin: `15px`,
+                    padding: `12px 16px`,
+                    borderRadius: `unset`,
+                    transform: `rotate(-1.5deg)`,
+                  }}
+                  _hover={{
+                    backgroundColor: `white`,
+                  }}
+                >
+                  CONNECT WALLET
+                </Button>
+                <Button
+                  sx={{
+                    opacity: `.5`,
+                    backgroundColor: `#72F44A`,
+                    color: `black`,
+                    fontSize: `1.5em`,
+                    fontFamily: "Roboto Mono, sans-serif",
+                    margin: `15px`,
+                    padding: `12px 16px`,
+                    borderRadius: `unset`,
+                    transform: `rotate(-1.5deg)`,
+                  }}
+                  _hover={{
+                    backgroundColor: `white`,
+                  }}
+                >
+                  SWAP NFTs FOR $TRASH
+                </Button>
+              </Box>
             </Box>
-          </Box>
+            <Box sx={{ margin: `0 auto` }}>
+              <Image
+                className="active"
+                src="/jd-collab-edit.gif"
+                id="exploded-trash-bag"
+                alt=""
+              />
+            </Box>
+          </SimpleGrid>
+          {/* Grid time baby */}
+
+          <Divider
+            sx={{
+              background: `#72f44a`,
+              height: `4px`,
+              width: `auto`,
+              margin: `25px`,
+              border: `0px`,
+              opacity: `1`,
+              borderBottomWidth: `0px`,
+            }}
+          />
+          <Columned>
+            <img
+              alt="Image 1"
+              src={
+                "https://lh3.googleusercontent.com/hnSy8Iglj6l_OGCl4LryWQoakHNRz8xVISSP6cWYdTHFbQ8BJMiwZ-xVuhmwAYvfgFyKsA8yVxDW4ZuCSD2tWpqWQ4bE5i7-RE6Q=s0"
+              }
+            />
+            <img
+              alt="Image 2"
+              src={
+                "https://lh3.googleusercontent.com/UM-9DqeCM5vvs8N753h0YbRbjavyuubEfUn0R2Nw7bl2GtAAuw1_fVc201Q_z4AVmAHHLH9sDzbqiTK1WGsK3FcSG74s69faJH9ZNX0=s0"
+              }
+            />
+            <img
+              alt="Image 3"
+              src={
+                "https://lh3.googleusercontent.com/4IZW2e-nqWCedNPFQsL_ttS3dYaIEDRZDbZ38OFTnBHQIDejKPWYqBmqsSPvyZh70ePR5BOFxxorBwdHNkduXmYcRB66nGjEJ2GGyw=s0"
+              }
+            />
+            <img
+              alt="Image 4"
+              src={
+                "https://lh3.googleusercontent.com/bANPR-eNS3n-UplgXGWEZ3H-S161WxgoC4MeVGNmxOZlGsN2ZJdr-D-793quy3Zxi5rQCHD7Ui9BCKzZrUiPikVIOTxgVjCrs1AJhg"
+              }
+            />
+            <img
+              alt="Image 5"
+              src={
+                "https://lh3.googleusercontent.com/LOTYDNEFGYE5n5IwEDjWTCxkquIz33Ir0szcxzEA9DTts9Xpa7Q4y59wcdz8BGJezGYw85ImlGIMmFyEGcr0trQXP6Tg4ZeZJCY1_l4"
+              }
+            />
+            <img
+              alt="Image 6"
+              src={
+                "https://lh3.googleusercontent.com/2-GlZGSFW9ilzadcL2c28SV6sOdWKIfklEdA6hlmg996LvYeyk5AjZUOBoK64EIru_sgslLCk3g1QbCURzPE8xNy_k8dcTGxatfS3Es"
+              }
+            />
+            <img
+              alt="Image 7"
+              src={
+                "https://lh3.googleusercontent.com/EYWYyffuoWIkntbYLOPPmH-TuqxVQiZUefwDOD_3ApYgzBtQCCZCYjNo13hpyovRK9nreXFD0kb08JYSYSaKRAJxzP-rAgkm1cg2MQ=w600"
+              }
+            />
+            <img
+              alt="Image 8"
+              src={
+                "https://lh3.googleusercontent.com/E5rNkPPaBQcAjLc_JZe0vlQhdD8B8qGEFkJAWOJiY8TydiapTJarsN4lcyWCITSgQXF7gLw8L-WTyKqZ8QKMNmpdryHumyNnj1ybGmg"
+              }
+            />
+            <img
+              alt="Image 8"
+              src={
+                "https://lh3.googleusercontent.com/nFFIjV1c8G3sdBDST7OmziHZMTJmc54Hm4iFxKuUOOO37DdF1lKL0c6Ko4rk1lm-p7jk6oygRXi2o4wiOpmuWliPWl45cL9wr3wB1w=w600"
+              }
+            />
+            <img
+              alt="Image 8"
+              src={
+                "https://openseauserdata.com/files/a7b989d5795924748453e104e165bbd5.svg"
+              }
+            />
+          </Columned>
           {/* End Trash Container */}
         </Box>
       </Box>
-    </>
-  );
-}
-
-function SwapNFTModal({ isOpen, onOpen, onClose }) {
-  return (
-    <>
-      <Modal isCentered isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent
-          width={[`100%`, `50%`]}
-          height={"80vh"}
-          sx={{
-            backgroundColor: `#E45050`,
-            border: `2px solid white`,
-            borderRadius: "0px",
-            color: `white`,
-            maxWidth: `100vw`,
-          }}
-        >
-          <Box
-            paddingX={["16px", "32px"]}
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
-            <Text
-              paddingTop={["16px", "32px"]}
-              sx={{
-                color: `#FFEE04`,
-                textShadow: `0px 4px 4px rgba(0,0,0,0.3)`,
-                fontSize: `6vmax`,
-                textAlign: `center`,
-                fontFamily: `'Epilogue', sans-serif`,
-                width: "full",
-              }}
-            >
-              SWAP NFT!
-            </Text>
-            <Image
-              src="/clickerthinger.png"
-              alt=""
-              onClick={onClose}
-              width="25px"
-              height="27px"
-              placeSelf={"center"}
-              marginLeft={["16px", "36px"]}
-              _hover={{
-                cursor: `pointer`,
-              }}
-            />
-          </Box>
-          <ModalBody
-            sx={{
-              letterSpacing: `.1em`,
-              textShadow: `0px 3px 5px rgba(0,0,0,0.25)`,
-              lineHeight: `23px`,
-              fontSize: `23px`,
-              fontFamily: "Roboto Mono",
-              width: "full",
-              overflowY: "auto",
-            }}
-          >
-            <Text>TRASHDAO IS AN ART AND GOVERNANCE EXPERIMENT.</Text>
-            <br />
-            <Text>Click continue to swap NFTs for $TRASH!</Text>
-            <br />
-            <Text>
-              CONFIRM THE URL LEADS TO SZNS.IO/ALBUM/TRASHDAO/BOUNTY_BOARD
-              BEFORE SWAPPING.
-            </Text>
-            <br />
-            <Heading
-              sx={{
-                letterSpacing: ".1em",
-                fontSize: "20px",
-                textDecoration: `underline`,
-                padding: `10px 0px`,
-              }}
-            >
-              Smart Contract
-            </Heading>
-            <Text>
-              While the contracts have been reviewed by an experienced solidity
-              developer, there are always risks in smart contracts. Smart
-              contracts are still new and experimental technology. By
-              interacting with this smart contract you accept this risk and
-              absolve the developers, community members, and website host of all
-              responsibility.
-            </Text>
-            <br />
-          </ModalBody>
-          <ModalFooter sx={{ margin: `0 auto` }}>
-            <Link
-              sx={{
-                backgroundColor: "white",
-                borderRadius: `25px`,
-                textTransform: `uppercase`,
-                color: `#E45050`,
-                boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`,
-                padding: `4px`,
-                textAlign: "center",
-                fontWeight: `700`,
-                marginRight: `8px`,
-              }}
-              onClick={onClose}
-              _focus={{
-                outline: `none`,
-              }}
-              _hover={{
-                textDecoration: `none`,
-              }}
-            >
-              Cancel
-            </Link>
-            <Link
-              sx={{
-                backgroundColor: "#FFEE04",
-                borderRadius: `25px`,
-                textTransform: `uppercase`,
-                color: `#E45050`,
-                boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`,
-                padding: `4px`,
-                textAlign: "center",
-                fontWeight: `700`,
-                marginLeft: `8px`,
-              }}
-              _focus={{
-                outline: `none`,
-              }}
-              _hover={{
-                textDecoration: `none`,
-              }}
-              href="https://szns.io/album/trashdao/bounty_board"
-              target="_blank"
-            >
-              Continue
-            </Link>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
     </>
   );
 }
@@ -794,7 +697,13 @@ function BasicUsage({ isOpen, onOpen, onClose }) {
   );
 }
 
-function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
+function DonateModal({ isOpen, onOpen, onClose }) {
+  const CopyAddress = async () => {
+    const res = await navigator.clipboard.writeText(
+      "0x2Ea988868c0575a5803e841291B605BAfAD0A9cD"
+    );
+    toast.success("Address In Clipboard");
+  };
   return (
     <>
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
@@ -900,7 +809,7 @@ function DonateModal({ isOpen, onOpen, onClose, copyAddress }) {
               _focus={{
                 outline: `none`,
               }}
-              onClick={copyAddress}
+              onClick={() => CopyAddress()}
             >
               COPY ADDRESS
             </Button>
