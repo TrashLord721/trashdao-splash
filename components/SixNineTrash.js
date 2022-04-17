@@ -48,16 +48,5 @@ export default function SixNineTrash() {
   }
 
   console.log(windowDimensions);
-  return (
-    <Image
-      sx={{
-        width: `250px`,
-        position: `absolute`,
-        zIndex: `5`,
-        left: `${x}px`,
-        top: `${y}px`,
-      }}
-      src="sixninetrash.png"
-    />
-  );
+  return <Image id="six-nine" src="sixninetrash.png" />;
 }

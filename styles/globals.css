@@ -81,3 +81,84 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #4da533;
 }
+
+#six-nine {
+  display: block;
+  position: absolute;
+  width: 530px;
+  height: 107px;
+  -webkit-animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.4s linear 0s infinite alternate;
+  -moz-animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.4s linear 0s infinite alternate;
+  -o-animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.4s linear 0s infinite alternate;
+  animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.4s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 530px);
+  }
+}
+@-moz-keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 530px);
+  }
+}
+@-o-keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 530px);
+  }
+}
+@keyframes moveX {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 530px);
+  }
+}
+
+@-webkit-keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - 107px);
+  }
+}
+@-moz-keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - 107px);
+  }
+}
+@-o-keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - 107px);
+  }
+}
+@keyframes moveY {
+  from {
+    top: 0;
+  }
+  to {
+    top: calc(100% - 107px);
+  }
+}
