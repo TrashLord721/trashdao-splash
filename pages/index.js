@@ -32,10 +32,12 @@ import toast from "react-hot-toast";
 import Columned from "react-columned";
 import MarqueeC from "../components/MarqueeC";
 import SixNineTrash from "../components/SixNineTrash";
+import { useInjectedProvider } from "../components/InjectedProviderContext";
 
 export default function Home() {
   // toggle stuff
   const [active, setActive] = useState(false);
+  // copy & paste the fox
 
   const handleChangeActive = () => {
     setActive((previousStar) => {
@@ -162,6 +164,15 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
     );
     toast.success("Address In Clipboard");
   };
+
+  const {
+    address,
+    isUpdating,
+    connectProvider,
+    disconnectDapp,
+    injectedChain,
+    injectedProvider,
+  } = useInjectedProvider();
 
   return (
     <>
@@ -393,9 +404,12 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
                   _hover={{
                     backgroundColor: `white`,
                   }}
+                  onClick={() => connectProvider()}
                 >
                   CONNECT WALLET
                 </Button>
+
+                {address}
                 <Button
                   sx={{
                     opacity: `.5`,
