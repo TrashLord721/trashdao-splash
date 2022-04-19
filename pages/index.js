@@ -406,10 +406,12 @@ function ToggleImages({ active, handleChangeActive, onClick, onOpen }) {
                   }}
                   onClick={() => connectProvider()}
                 >
-                  CONNECT WALLET
+                  {address !== null ? (
+                    <Text>{address}</Text>
+                  ) : (
+                    <Text>Connect Wallet</Text>
+                  )}
                 </Button>
-
-                {address}
                 <Button
                   sx={{
                     opacity: `.5`,
