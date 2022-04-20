@@ -19,14 +19,14 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent
-          width={[`100%`, `50%`]}
-          height={[`80vh`, "90vh"]}
+          width={["100%", "50%"]}
+          height={["80vh", "90vh"]}
           sx={{
-            backgroundColor: `black`,
-            border: `2px solid white`,
+            backgroundColor: "black",
+            border: "2px solid white",
             borderRadius: "0px",
-            color: `#E332F0`,
-            maxWidth: `100vw`,
+            color: "#E332F0",
+            maxWidth: "100vw",
           }}
         >
           <Box
@@ -43,7 +43,7 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
               placeSelf={"center"}
               marginLeft={["16px", "36px"]}
               _focus={{
-                outline: `none`,
+                outline: "none",
               }}
               icon={
                 <Image
@@ -53,7 +53,7 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
                   width="25px"
                   height="27px"
                   _hover={{
-                    cursor: `pointer`,
+                    cursor: "pointer",
                   }}
                 />
               }
@@ -61,14 +61,14 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
           </Box>
           <ModalBody
             sx={{
-              letterSpacing: `.1em`,
-              textShadow: `0px 3px 5px 0px #00000040;`,
-              lineHeight: `23px`,
-              fontSize: `20px`,
-              textTransform: `uppercase`,
-              maxHeight: `80vh`,
-              overflowY: `auto`,
-              width: `full`,
+              letterSpacing: ".1em",
+              textShadow: "0px 3px 5px 0px #00000040;",
+              lineHeight: "23px",
+              fontSize: "20px",
+              textTransform: "uppercase",
+              maxHeight: "80vh",
+              overflowY: "auto",
+              width: "full",
             }}
           >
             <Heading>
@@ -152,7 +152,7 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
                 isExternal
                 color="#72F44A"
                 _focus={{
-                  outline: `none`,
+                  outline: "none",
                 }}
               >
                 Trash Art
@@ -174,7 +174,7 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
                 isExternal
                 color="#72F44A"
                 _focus={{
-                  outline: `none`,
+                  outline: "none",
                 }}
               >
                 The 64-gallon toter

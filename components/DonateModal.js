@@ -28,13 +28,13 @@ export default function DonateModal({ isOpen, onOpen, onClose }) {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent
-          width={[`100%`, `50%`]}
+          width={["100%", "50%"]}
           sx={{
-            backgroundColor: `black`,
-            border: `2px solid white`,
+            backgroundColor: "black",
+            border: "2px solid white",
             borderRadius: "0px",
-            color: `#E332F0`,
-            maxWidth: `100vw`,
+            color: "#E332F0",
+            maxWidth: "100vw",
           }}
         >
           <Box
@@ -54,21 +54,21 @@ export default function DonateModal({ isOpen, onOpen, onClose }) {
               placeSelf={"center"}
               marginLeft={["16px", "36px"]}
               _hover={{
-                cursor: `pointer`,
+                cursor: "pointer",
               }}
             />
           </Box>
           <ModalBody
             sx={{
-              letterSpacing: `.1em`,
-              textShadow: `0px 3px 5px 0px #00000040;`,
-              lineHeight: `23px`,
-              fontSize: `16px`,
-              fontFamily: `'Roboto Mono', sans-serif`,
-              textTransform: `uppercase`,
-              maxHeight: `80vh`,
-              overflowY: `auto`,
-              width: `full`,
+              letterSpacing: ".1em",
+              textShadow: "0px 3px 5px 0px #00000040;",
+              lineHeight: "23px",
+              fontSize: "16px",
+              fontFamily: "'Roboto Mono', sans-serif",
+              textTransform: "uppercase",
+              maxHeight: "80vh",
+              overflowY: "auto",
+              width: "full",
             }}
           >
             <Text>CLICKING DONATE WILL COPY AN ADDRESS TO YOUR CLIPBOARD.</Text>
@@ -86,7 +86,7 @@ export default function DonateModal({ isOpen, onOpen, onClose }) {
                 isExternal
                 color="#FFEE04"
                 _focus={{
-                  outline: `none`,
+                  outline: "none",
                 }}
               >
                 BOUNTY BOARD
@@ -96,23 +96,23 @@ export default function DonateModal({ isOpen, onOpen, onClose }) {
             <br />
           </ModalBody>
           <ModalFooter
-            sx={{ margin: `0 auto` }}
+            sx={{ margin: "0 auto" }}
             paddingBottom={["32px", "64px"]}
           >
             <Button
               sx={{
                 backgroundColor: "#72F44A",
-                borderRadius: `25px`,
-                textTransform: `uppercase`,
-                color: `#E332F0`,
-                boxShadow: `0px 8px 12px rgba(0, 0, 0, 0.25);`,
-                padding: `4px`,
+                borderRadius: "25px",
+                textTransform: "uppercase",
+                color: "#E332F0",
+                boxShadow: "0px 8px 12px rgba(0, 0, 0, 0.25);",
+                padding: "4px",
                 textAlign: "center",
-                fontWeight: `700`,
-                marginLeft: `5px`,
+                fontWeight: "700",
+                marginLeft: "5px",
               }}
               _focus={{
-                outline: `none`,
+                outline: "none",
               }}
               onClick={() => CopyAddress()}
             >

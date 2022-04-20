@@ -100,7 +100,7 @@ export default function ToggleImages({
               src="/Trash.gif"
               onClick={handleChangeActive}
               width={["90%", "40%"]}
-              sx={{ cursor: `pointer` }}
+              sx={{ cursor: "pointer" }}
               id="trash-bag"
               alt=""
             />
@@ -108,12 +108,12 @@ export default function ToggleImages({
               sx={{
                 color: "#06FA1D",
                 fontFamily: "Roboto Mono",
-                fontWeight: `700`,
-                fontSize: `24px`,
+                fontWeight: "700",
+                fontSize: "24px",
                 textTransform: "uppercase",
                 position: "absolute",
                 top: "59%",
-                cursor: `pointer`,
+                cursor: "pointer",
               }}
               onClick={handleChangeActive}
             >
@@ -135,16 +135,16 @@ export default function ToggleImages({
                     textAlign: "center",
                   }}
                   _hover={{
-                    backgroundColor: `white`,
+                    backgroundColor: "white",
                   }}
                 >
                   <Link
                     href="/"
                     _hover={{
-                      textDecoration: `none`,
+                      textDecoration: "none",
                     }}
                     _focus={{
-                      outline: `none`,
+                      outline: "none",
                     }}
                   >
                     TrashDAO
@@ -173,7 +173,7 @@ export default function ToggleImages({
                     <Link
                       href="#"
                       _focus={{
-                        outline: `none`,
+                        outline: "none",
                       }}
                     >
                       <ListItem className="nav-link" onClick={onFaqOpen}>
@@ -183,7 +183,7 @@ export default function ToggleImages({
                     <Link
                       href="#"
                       _focus={{
-                        outline: `none`,
+                        outline: "none",
                       }}
                     >
                       <ListItem className="nav-link" onClick={onAboutOpen}>
@@ -194,7 +194,7 @@ export default function ToggleImages({
                     <Link
                       href="#"
                       _focus={{
-                        outline: `none`,
+                        outline: "none",
                       }}
                     >
                       <ListItem className="nav-link" onClick={onGovOpen}>
@@ -205,7 +205,7 @@ export default function ToggleImages({
                     <Link
                       href="#"
                       _focus={{
-                        outline: `none`,
+                        outline: "none",
                       }}
                     >
                       <ListItem className="nav-link" onClick={onDonateOpen}>
@@ -226,7 +226,7 @@ export default function ToggleImages({
                     href="https://discord.gg/ySPNt97G7P"
                     target="_blank"
                     _focus={{
-                      outline: `none`,
+                      outline: "none",
                     }}
                   >
                     <Image
@@ -241,7 +241,7 @@ export default function ToggleImages({
                     href="https://twitter.com/Trash_DAO"
                     target="_blank"
                     _focus={{
-                      outline: `none`,
+                      outline: "none",
                     }}
                   >
                     <Image
@@ -251,7 +251,7 @@ export default function ToggleImages({
                       height="20.55"
                       sx={{ cursor: "pointer" }}
                       _focus={{
-                        outline: `none`,
+                        outline: "none",
                       }}
                     />
                   </Link>
@@ -264,7 +264,7 @@ export default function ToggleImages({
 
           {/* Grid time baby */}
           <SimpleGrid id="trash-pillar" columns={3} spacing={5}>
-            <Box sx={{ margin: `0 auto` }}>
+            <Box sx={{ margin: "0 auto" }}>
               <Image
                 className="active"
                 src="/jd-collab-edit.gif"
@@ -272,32 +272,32 @@ export default function ToggleImages({
                 alt=""
               />
             </Box>
-            <Box sx={{ textAlign: `center`, color: `#72f44a` }}>
-              <Heading sx={{ color: `#72f44a` }}>NFTs are $TRASH</Heading>
+            <Box sx={{ textAlign: "center", color: "#72f44a" }}>
+              <Heading sx={{ color: "#72f44a" }}>NFTs are $TRASH</Heading>
               <Heading as="h4" size="sm">
                 Swap any* NFT for 69 $TRASH
               </Heading>
               <Box
                 sx={{
-                  marginTop: `50px`,
-                  display: `flex`,
-                  flexDirection: `row`,
-                  justifyContent: `center`,
+                  marginTop: "50px",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
                 }}
               >
                 <Button
                   sx={{
-                    backgroundColor: `#72F44A`,
-                    color: `black`,
-                    fontSize: `1.5em`,
+                    backgroundColor: "#72F44A",
+                    color: "black",
+                    fontSize: "1.5em",
                     fontFamily: "Roboto Mono, sans-serif",
-                    margin: `15px`,
-                    padding: `12px 16px`,
-                    borderRadius: `unset`,
-                    transform: `rotate(-1.5deg)`,
+                    margin: "15px",
+                    padding: "12px 16px",
+                    borderRadius: "unset",
+                    transform: "rotate(-1.5deg)",
                   }}
                   _hover={{
-                    backgroundColor: `white`,
+                    backgroundColor: "white",
                   }}
                   onClick={handleConnect}
                 >
@@ -309,25 +309,25 @@ export default function ToggleImages({
                 </Button>
                 <Button
                   sx={{
-                    opacity: `.5`,
-                    backgroundColor: `#72F44A`,
-                    color: `black`,
-                    fontSize: `1.5em`,
+                    opacity: ".5",
+                    backgroundColor: "#72F44A",
+                    color: "black",
+                    fontSize: "1.5em",
                     fontFamily: "Roboto Mono, sans-serif",
-                    margin: `15px`,
-                    padding: `12px 16px`,
-                    borderRadius: `unset`,
-                    transform: `rotate(-1.5deg)`,
+                    margin: "15px",
+                    padding: "12px 16px",
+                    borderRadius: "unset",
+                    transform: "rotate(-1.5deg)",
                   }}
                   _hover={{
-                    backgroundColor: `white`,
+                    backgroundColor: "white",
                   }}
                 >
                   SWAP NFTs FOR $TRASH
                 </Button>
               </Box>
             </Box>
-            <Box sx={{ margin: `0 auto` }}>
+            <Box sx={{ margin: "0 auto" }}>
               <Image
                 className="active"
                 src="/jd-collab-edit.gif"
@@ -340,71 +340,71 @@ export default function ToggleImages({
 
           <Divider
             sx={{
-              background: `#72f44a`,
-              height: `4px`,
-              width: `auto`,
-              margin: `25px`,
-              border: `0px`,
-              opacity: `1`,
-              borderBottomWidth: `0px`,
+              background: "#72f44a",
+              height: "4px",
+              width: "auto",
+              margin: "25px",
+              border: "0px",
+              opacity: "1",
+              borderBottomWidth: "0px",
             }}
           />
           <Columned>
-            <img
+            <Image
               alt="Image 1"
               src={
                 "https://lh3.googleusercontent.com/hnSy8Iglj6l_OGCl4LryWQoakHNRz8xVISSP6cWYdTHFbQ8BJMiwZ-xVuhmwAYvfgFyKsA8yVxDW4ZuCSD2tWpqWQ4bE5i7-RE6Q=s0"
               }
             />
-            <img
+            <Image
               alt="Image 2"
               src={
                 "https://lh3.googleusercontent.com/UM-9DqeCM5vvs8N753h0YbRbjavyuubEfUn0R2Nw7bl2GtAAuw1_fVc201Q_z4AVmAHHLH9sDzbqiTK1WGsK3FcSG74s69faJH9ZNX0=s0"
               }
             />
-            <img
+            <Image
               alt="Image 3"
               src={
                 "https://lh3.googleusercontent.com/4IZW2e-nqWCedNPFQsL_ttS3dYaIEDRZDbZ38OFTnBHQIDejKPWYqBmqsSPvyZh70ePR5BOFxxorBwdHNkduXmYcRB66nGjEJ2GGyw=s0"
               }
             />
-            <img
+            <Image
               alt="Image 4"
               src={
                 "https://lh3.googleusercontent.com/bANPR-eNS3n-UplgXGWEZ3H-S161WxgoC4MeVGNmxOZlGsN2ZJdr-D-793quy3Zxi5rQCHD7Ui9BCKzZrUiPikVIOTxgVjCrs1AJhg"
               }
             />
-            <img
+            <Image
               alt="Image 5"
               src={
                 "https://lh3.googleusercontent.com/LOTYDNEFGYE5n5IwEDjWTCxkquIz33Ir0szcxzEA9DTts9Xpa7Q4y59wcdz8BGJezGYw85ImlGIMmFyEGcr0trQXP6Tg4ZeZJCY1_l4"
               }
             />
-            <img
+            <Image
               alt="Image 6"
               src={
                 "https://lh3.googleusercontent.com/2-GlZGSFW9ilzadcL2c28SV6sOdWKIfklEdA6hlmg996LvYeyk5AjZUOBoK64EIru_sgslLCk3g1QbCURzPE8xNy_k8dcTGxatfS3Es"
               }
             />
-            <img
+            <Image
               alt="Image 7"
               src={
                 "https://lh3.googleusercontent.com/EYWYyffuoWIkntbYLOPPmH-TuqxVQiZUefwDOD_3ApYgzBtQCCZCYjNo13hpyovRK9nreXFD0kb08JYSYSaKRAJxzP-rAgkm1cg2MQ=w600"
               }
             />
-            <img
+            <Image
               alt="Image 8"
               src={
                 "https://lh3.googleusercontent.com/E5rNkPPaBQcAjLc_JZe0vlQhdD8B8qGEFkJAWOJiY8TydiapTJarsN4lcyWCITSgQXF7gLw8L-WTyKqZ8QKMNmpdryHumyNnj1ybGmg"
               }
             />
-            <img
+            <Image
               alt="Image 8"
               src={
                 "https://lh3.googleusercontent.com/nFFIjV1c8G3sdBDST7OmziHZMTJmc54Hm4iFxKuUOOO37DdF1lKL0c6Ko4rk1lm-p7jk6oygRXi2o4wiOpmuWliPWl45cL9wr3wB1w=w600"
               }
             />
-            <img
+            <Image
               alt="Image 8"
               src={
                 "https://openseauserdata.com/files/a7b989d5795924748453e104e165bbd5.svg"
