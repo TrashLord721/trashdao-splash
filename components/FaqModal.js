@@ -91,7 +91,6 @@ export default function FaqModal({ isOpen, onOpen, onClose }) {
           ></ModalFooter>
         </ModalContent>
       </Modal>
-      ;
     </>
   );
 }
