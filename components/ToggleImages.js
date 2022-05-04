@@ -11,7 +11,7 @@ import {
   UnorderedList,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Columned from "react-columned";
 import toast from "react-hot-toast";
 
@@ -68,6 +68,23 @@ export default function ToggleImages({
     console.log("Connecting to injected provider...");
     connectProvider();
   }, [connectProvider]);
+
+  const [thumbnails, setThumbnails] = useState([]);
+
+  // Call API code block explained with mack
+  useEffect(() => {
+    async function getData() {
+      const options = {
+        method: "GET",
+      };
+      const result = await fetch("/api/opensea");
+      const jsonResult = await result.json();
+      if (typeof jsonResult !== "undefined") {
+        setThumbnails(jsonResult.thumbnails);
+      }
+    }
+    getData();
+  }, []);
 
   return (
     <>
@@ -350,66 +367,16 @@ export default function ToggleImages({
             }}
           />
           <Columned>
-            <Image
-              alt="Image 1"
-              src={
-                "https://lh3.googleusercontent.com/hnSy8Iglj6l_OGCl4LryWQoakHNRz8xVISSP6cWYdTHFbQ8BJMiwZ-xVuhmwAYvfgFyKsA8yVxDW4ZuCSD2tWpqWQ4bE5i7-RE6Q=s0"
-              }
-            />
-            <Image
-              alt="Image 2"
-              src={
-                "https://lh3.googleusercontent.com/UM-9DqeCM5vvs8N753h0YbRbjavyuubEfUn0R2Nw7bl2GtAAuw1_fVc201Q_z4AVmAHHLH9sDzbqiTK1WGsK3FcSG74s69faJH9ZNX0=s0"
-              }
-            />
-            <Image
-              alt="Image 3"
-              src={
-                "https://lh3.googleusercontent.com/4IZW2e-nqWCedNPFQsL_ttS3dYaIEDRZDbZ38OFTnBHQIDejKPWYqBmqsSPvyZh70ePR5BOFxxorBwdHNkduXmYcRB66nGjEJ2GGyw=s0"
-              }
-            />
-            <Image
-              alt="Image 4"
-              src={
-                "https://lh3.googleusercontent.com/bANPR-eNS3n-UplgXGWEZ3H-S161WxgoC4MeVGNmxOZlGsN2ZJdr-D-793quy3Zxi5rQCHD7Ui9BCKzZrUiPikVIOTxgVjCrs1AJhg"
-              }
-            />
-            <Image
-              alt="Image 5"
-              src={
-                "https://lh3.googleusercontent.com/LOTYDNEFGYE5n5IwEDjWTCxkquIz33Ir0szcxzEA9DTts9Xpa7Q4y59wcdz8BGJezGYw85ImlGIMmFyEGcr0trQXP6Tg4ZeZJCY1_l4"
-              }
-            />
-            <Image
-              alt="Image 6"
-              src={
-                "https://lh3.googleusercontent.com/2-GlZGSFW9ilzadcL2c28SV6sOdWKIfklEdA6hlmg996LvYeyk5AjZUOBoK64EIru_sgslLCk3g1QbCURzPE8xNy_k8dcTGxatfS3Es"
-              }
-            />
-            <Image
-              alt="Image 7"
-              src={
-                "https://lh3.googleusercontent.com/EYWYyffuoWIkntbYLOPPmH-TuqxVQiZUefwDOD_3ApYgzBtQCCZCYjNo13hpyovRK9nreXFD0kb08JYSYSaKRAJxzP-rAgkm1cg2MQ=w600"
-              }
-            />
-            <Image
-              alt="Image 8"
-              src={
-                "https://lh3.googleusercontent.com/E5rNkPPaBQcAjLc_JZe0vlQhdD8B8qGEFkJAWOJiY8TydiapTJarsN4lcyWCITSgQXF7gLw8L-WTyKqZ8QKMNmpdryHumyNnj1ybGmg"
-              }
-            />
-            <Image
-              alt="Image 8"
-              src={
-                "https://lh3.googleusercontent.com/nFFIjV1c8G3sdBDST7OmziHZMTJmc54Hm4iFxKuUOOO37DdF1lKL0c6Ko4rk1lm-p7jk6oygRXi2o4wiOpmuWliPWl45cL9wr3wB1w=w600"
-              }
-            />
-            <Image
-              alt="Image 8"
-              src={
-                "https://openseauserdata.com/files/a7b989d5795924748453e104e165bbd5.svg"
-              }
-            />
+            {thumbnails.length > 0 &&
+              thumbnails.map((thumbnail, index) => {
+                return (
+                  <Image
+                    src={thumbnail}
+                    alt={`TrashDAO Image #${index}`}
+                    key={index}
+                  />
+                );
+              })}
           </Columned>
           {/* End Trash Container */}
         </Box>

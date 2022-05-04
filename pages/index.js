@@ -6,8 +6,6 @@ import Marquee from "react-fast-marquee";
 import SixNineTrash from "../components/SixNineTrash";
 import ToggleImages from "../components/ToggleImages";
 
-// Test 2
-
 export default function Home() {
   // toggle stuff
   const [active, setActive] = useState(false);
@@ -37,7 +35,7 @@ export default function Home() {
     }, 1000);
 
     return () => clearTimeout(timer);
-  });
+  }, []);
 
   const handleClick = useCallback(() => {
     // Initialize the AudioContext State & play / pause
