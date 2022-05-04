@@ -1,0 +1,18 @@
+.nav-link {
+  border: 1px solid #72f44a;
+  color: #72f44a;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0px 15px;
+  margin: 0px 15px 16px 0px;
+  transform: rotate(0.46deg);
+}
+
+.nav-link:hover {
+  border: 1px solid white;
+  color: white;
+}
