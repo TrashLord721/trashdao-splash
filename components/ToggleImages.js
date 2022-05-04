@@ -316,29 +316,6 @@ export default function ToggleImages({
                   _hover={{
                     backgroundColor: "white",
                   }}
-                  onClick={handleConnect}
-                >
-                  {address !== null ? (
-                    <Text>{address}</Text>
-                  ) : (
-                    <Text>Connect Wallet</Text>
-                  )}
-                </Button>
-                <Button
-                  sx={{
-                    opacity: ".5",
-                    backgroundColor: "#72F44A",
-                    color: "black",
-                    fontSize: "1.5em",
-                    fontFamily: "Roboto Mono, sans-serif",
-                    margin: "15px",
-                    padding: "12px 16px",
-                    borderRadius: "unset",
-                    transform: "rotate(-1.5deg)",
-                  }}
-                  _hover={{
-                    backgroundColor: "white",
-                  }}
                 >
                   SWAP NFTs FOR $TRASH
                 </Button>
