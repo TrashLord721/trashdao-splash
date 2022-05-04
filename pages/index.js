@@ -1,6 +1,7 @@
 import { Box, Link } from "@chakra-ui/react";
 import Head from "next/head";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { render } from "react-dom";
 import Marquee from "react-fast-marquee";
 
 import SixNineTrash from "../components/SixNineTrash";
@@ -9,7 +10,6 @@ import ToggleImages from "../components/ToggleImages";
 export default function Home() {
   // toggle stuff
   const [active, setActive] = useState(false);
-  // copy & paste the fox
 
   const handleChangeActive = () => {
     setActive((previousStar) => {

@@ -12,13 +12,14 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useCallback, useEffect, useState } from "react";
-import Columned from "react-columned";
 import toast from "react-hot-toast";
 
 import AboutModal from "./AboutModal";
 import DonateModal from "./DonateModal";
 import FaqModal from "./FaqModal";
 import GovModal from "./GovModal";
+import GalleryGrid from "./GalleryGrid";
+import IFrame from "./IFrame";
 import { useInjectedProvider } from "./InjectedProviderContext";
 
 export default function ToggleImages({
@@ -69,22 +70,10 @@ export default function ToggleImages({
     connectProvider();
   }, [connectProvider]);
 
-  const [thumbnails, setThumbnails] = useState([]);
-
-  // Call API code block explained with mack
-  useEffect(() => {
-    async function getData() {
-      const options = {
-        method: "GET",
-      };
-      const result = await fetch("/api/opensea");
-      const jsonResult = await result.json();
-      if (typeof jsonResult !== "undefined") {
-        setThumbnails(jsonResult.thumbnails);
-      }
-    }
-    getData();
-  }, []);
+  const [isActive, setActive] = useState();
+  const ToggleClass = () => {
+    setActive(!isActive);
+  };
 
   return (
     <>
@@ -276,9 +265,7 @@ export default function ToggleImages({
               </Box>
             </SimpleGrid>
           </header>
-
           {/* Start Trash Container */}
-
           {/* Grid time baby */}
           <SimpleGrid id="trash-pillar" columns={3} spacing={5}>
             <Box sx={{ margin: "0 auto" }}>
@@ -294,6 +281,7 @@ export default function ToggleImages({
               <Heading as="h4" size="sm">
                 Swap any* NFT for 69 $TRASH
               </Heading>
+
               <Box
                 sx={{
                   marginTop: "50px",
@@ -302,6 +290,7 @@ export default function ToggleImages({
                   justifyContent: "center",
                 }}
               >
+                {/* TOGGLE GalleryGrid & IFrame */}
                 <Button
                   sx={{
                     backgroundColor: "#72F44A",
@@ -316,9 +305,15 @@ export default function ToggleImages({
                   _hover={{
                     backgroundColor: "white",
                   }}
+                  onClick={ToggleClass}
                 >
-                  SWAP NFTs FOR $TRASH
+                  {isActive ? (
+                    <Text>SEE DEPOSITED $TRASH</Text>
+                  ) : (
+                    <Text>SWAP NFTs FOR $TRASH</Text>
+                  )}
                 </Button>
+                {/* TOGGLE GalleryGrid & IFrame */}
               </Box>
             </Box>
             <Box sx={{ margin: "0 auto" }}>
@@ -331,7 +326,6 @@ export default function ToggleImages({
             </Box>
           </SimpleGrid>
           {/* Grid time baby */}
-
           <Divider
             sx={{
               background: "#72f44a",
@@ -343,18 +337,12 @@ export default function ToggleImages({
               borderBottomWidth: "0px",
             }}
           />
-          <Columned>
-            {thumbnails.length > 0 &&
-              thumbnails.map((thumbnail, index) => {
-                return (
-                  <Image
-                    src={thumbnail}
-                    alt={`TrashDAO Image #${index}`}
-                    key={index}
-                  />
-                );
-              })}
-          </Columned>
+          <div className={isActive ? "showgrid" : "hidegrid"}>
+            <GalleryGrid />
+          </div>
+          <div className={isActive ? "hidegrid" : "showgrid"}>
+            <IFrame />
+          </div>
           {/* End Trash Container */}
         </Box>
       </Box>

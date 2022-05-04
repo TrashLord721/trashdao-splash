@@ -82,6 +82,14 @@ html {
   background: #4da533;
 }
 
+.showgrid {
+  display: none;
+}
+
+.hidegrid {
+  display: block;
+}
+
 #six-nine {
   display: block;
   position: absolute;
