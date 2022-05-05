@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import Navigation from "./Navigation";
 
 import AboutModal from "./AboutModal";
 import DonateModal from "./DonateModal";
@@ -75,6 +76,21 @@ export default function ToggleImages({
     setActive(!isActive);
   };
 
+  const navProps = {
+    isFaqOpen,
+    onFaqOpen,
+    onFaqClose,
+    isAboutOpen,
+    onAboutOpen,
+    onAboutClose,
+    isGovOpen,
+    onGovOpen,
+    onGovClose,
+    isDonateOpen,
+    onDonateOpen,
+    onDonateClose,
+  };
+
   return (
     <>
       <Box
@@ -97,6 +113,7 @@ export default function ToggleImages({
         />
 
         {/* Before Trash Bag Explodes */}
+
         <Box
           className="inactive trash-container"
           sx={{ display: active ? "none" : "block" }}
@@ -131,7 +148,7 @@ export default function ToggleImages({
         {/* After Trash Bag Explodes */}
         <Box sx={{ display: active ? "block" : "none" }}>
           <header>
-            <SimpleGrid columns={2} spacing={0}>
+            <SimpleGrid columns={[1, 2]} spacing={0}>
               <Box className="logo" height="120px" sx={{ padding: "25px" }}>
                 <Box
                   sx={{
@@ -173,104 +190,16 @@ export default function ToggleImages({
                   textAlign: "right",
                 }}
               >
-                <Box>
-                  {/* navigation */}
-                  <UnorderedList>
-                    <Link
-                      href="#"
-                      _focus={{
-                        outline: "none",
-                      }}
-                    >
-                      <ListItem className="nav-link" onClick={onFaqOpen}>
-                        FAQ
-                      </ListItem>
-                    </Link>
-                    <Link
-                      href="#"
-                      _focus={{
-                        outline: "none",
-                      }}
-                    >
-                      <ListItem className="nav-link" onClick={onAboutOpen}>
-                        About
-                      </ListItem>
-                    </Link>
-
-                    <Link
-                      href="#"
-                      _focus={{
-                        outline: "none",
-                      }}
-                    >
-                      <ListItem className="nav-link" onClick={onGovOpen}>
-                        Governance
-                      </ListItem>
-                    </Link>
-
-                    <Link
-                      href="#"
-                      _focus={{
-                        outline: "none",
-                      }}
-                    >
-                      <ListItem className="nav-link" onClick={onDonateOpen}>
-                        Donate
-                      </ListItem>
-                    </Link>
-                  </UnorderedList>
-                  {/* navigation */}
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "end",
-                  }}
-                >
-                  <Link
-                    href="https://discord.gg/ySPNt97G7P"
-                    target="_blank"
-                    _focus={{
-                      outline: "none",
-                    }}
-                  >
-                    <Image
-                      src="/discord.png"
-                      alt="Discord"
-                      width="28.55"
-                      height="21.76"
-                      sx={{ marginRight: "16px", cursor: "pointer" }}
-                    />
-                  </Link>
-                  <Link
-                    href="https://twitter.com/Trash_DAO"
-                    target="_blank"
-                    _focus={{
-                      outline: "none",
-                    }}
-                  >
-                    <Image
-                      src="/twitter.png"
-                      alt="Twitter"
-                      width="25.5"
-                      height="20.55"
-                      sx={{ cursor: "pointer" }}
-                      _focus={{
-                        outline: "none",
-                      }}
-                    />
-                  </Link>
-                </Box>
+                <Navigation navProps={navProps} />
               </Box>
             </SimpleGrid>
           </header>
           {/* Start Trash Container */}
           {/* Grid time baby */}
-          <SimpleGrid id="trash-pillar" columns={3} spacing={5}>
+          <SimpleGrid id="trash-pillar" columns={[1, 3]} spacing={5}>
             <Box sx={{ margin: "0 auto" }}>
               <Image
-                className="active"
+                className="active remove-on-mobile"
                 src="/jd-collab-edit.gif"
                 id="exploded-trash-bag"
                 alt=""
@@ -292,12 +221,13 @@ export default function ToggleImages({
               >
                 {/* TOGGLE GalleryGrid & IFrame */}
                 <Button
+                  id="swap-button"
+                  margin={["15px", "25px"]}
                   sx={{
                     backgroundColor: "#72F44A",
                     color: "black",
                     fontSize: "1.5em",
                     fontFamily: "Roboto Mono, sans-serif",
-                    margin: "15px",
                     padding: "12px 16px",
                     borderRadius: "unset",
                     transform: "rotate(-1.5deg)",
@@ -318,7 +248,7 @@ export default function ToggleImages({
             </Box>
             <Box sx={{ margin: "0 auto" }}>
               <Image
-                className="active"
+                className="active remove-on-mobile"
                 src="/jd-collab-edit.gif"
                 id="exploded-trash-bag"
                 alt=""

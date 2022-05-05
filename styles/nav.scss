@@ -1,3 +1,9 @@
+#drawer-menu {
+  .nav-link {
+    display: block;
+  }
+}
+
 .nav-link {
   border: 1px solid #72f44a;
   color: #72f44a;
@@ -10,9 +16,14 @@
   padding: 0px 15px;
   margin: 0px 15px 16px 0px;
   transform: rotate(0.46deg);
+  &:hover {
+    border: 1px solid white;
+    color: white;
+  }
 }
 
-.nav-link:hover {
-  border: 1px solid white;
-  color: white;
+/* Mobile Stuff */
+
+#chakra-modal-custom {
+  background: black;
 }
