@@ -139,7 +139,7 @@ export default function Navigation(props) {
         <DrawerContent>
           <DrawerCloseButton sx={{ color: `#72f44a` }} />
           <Box>
-            <Box className="logo" height="120px" sx={{ padding: "25px" }}>
+            <Box className="logo" sx={{ padding: "25px" }}>
               <Box
                 sx={{
                   background: "#72F44A",
@@ -222,9 +222,10 @@ export default function Navigation(props) {
           </Box>
           <Box
             sx={{
+              padding: `25px`,
               display: "flex",
               flexDirection: "row",
-              justifyContent: "end",
+              justifyContent: "start",
             }}
           >
             <Link

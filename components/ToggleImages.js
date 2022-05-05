@@ -148,43 +148,59 @@ export default function ToggleImages({
         {/* After Trash Bag Explodes */}
         <Box sx={{ display: active ? "block" : "none" }}>
           <header>
-            <SimpleGrid columns={[1, 2]} spacing={0}>
-              <Box className="logo" height="120px" sx={{ padding: "25px" }}>
-                <Box
-                  sx={{
-                    background: "#72F44A",
-                    transform: "rotate(-1.68deg)",
-                    width: "178px",
-                    textAlign: "center",
-                  }}
-                  _hover={{
-                    backgroundColor: "white",
-                  }}
-                >
-                  <Link
-                    href="/"
-                    _hover={{
-                      textDecoration: "none",
-                    }}
-                    _focus={{
-                      outline: "none",
-                    }}
-                  >
-                    TrashDAO
-                  </Link>
-                </Box>
-                <br />
-                <Text
-                  fontSize="sm"
-                  sx={{ color: "#72F44A", fontWeight: "700", width: "178px" }}
-                >
-                  A Trash Artists Collab
-                  <br />
-                  Powered by SZNS
-                </Text>
-              </Box>
+            <SimpleGrid id="header-with-logo" columns={[1, 2]} spacing={0}>
+              <UnorderedList>
+                <ListItem>
+                  <Box>
+                    <Image
+                      id="mobile-trash-logo"
+                      src="/Trash.gif"
+                      alt="trash art yo"
+                    />
+                  </Box>
+                </ListItem>
+                <ListItem>
+                  <Box className="logo" sx={{ padding: "25px" }}>
+                    <Box
+                      sx={{
+                        background: "#72F44A",
+                        transform: "rotate(-1.68deg)",
+                        width: "178px",
+                        textAlign: "center",
+                      }}
+                      _hover={{
+                        backgroundColor: "white",
+                      }}
+                    >
+                      <Link
+                        href="/"
+                        _hover={{
+                          textDecoration: "none",
+                        }}
+                        _focus={{
+                          outline: "none",
+                        }}
+                      >
+                        TrashDAO
+                      </Link>
+                    </Box>
+                    <br />
+                    <Text
+                      fontSize="sm"
+                      sx={{
+                        color: "#72F44A",
+                        fontWeight: "700",
+                        width: "178px",
+                      }}
+                    >
+                      A Trash Artists Collab
+                      <br />
+                      Powered by SZNS
+                    </Text>
+                  </Box>
+                </ListItem>
+              </UnorderedList>
               <Box
-                height="120px"
                 sx={{
                   padding: "25px",
                   textAlign: "right",

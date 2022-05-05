@@ -9,6 +9,28 @@ body {
   cursor: url("/trash-cursor.png") 14 0, auto;
 }
 
+@media only screen and (max-width: 960px) {
+  #trash-bag {
+    max-width: 500px !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #trash-bag {
+    max-width: 250px !important;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  #trash-bag {
+    max-width: 200px !important;
+  }
+}
+
+#trash-bag {
+  width: 500px;
+}
+
 button {
   background: yellow;
   height: 50px;
@@ -32,7 +54,6 @@ html {
 /* im using stylesheet haha */
 
 .trash-container {
-  width: 750px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -44,10 +65,6 @@ html {
 #trash-pillar {
   max-width: 70%;
   margin: 0 auto;
-}
-
-#trash-bag {
-  width: 500px;
 }
 
 #exploded-trash-bag {
@@ -65,12 +82,29 @@ html {
 img[src*="sandwich.png"] {
   display: none;
 }
+
+#header-with-logo {
+  #mobile-trash-logo {
+    width: 100px;
+  }
+  li {
+    display: inline-block;
+  }
+  div {
+    max-height: 120px;
+  }
+}
+
+#mobile-trash-logo {
+  width: 150px;
+}
+
 @media only screen and (max-width: 960px) {
   img[src*="sandwich.png"] {
     display: block;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 50px;
+    right: 20px;
   }
   #desktop-menu {
     display: none;
