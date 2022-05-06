@@ -81,7 +81,7 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
               <br />
               <br />
               Value can be subjective, and we get to collectively decide in what
-              we place value to. One element TrashDAO is experimenting with is
+              we place value on. One element TrashDAO is experimenting with is
               decentralizing curated image practices. Curation has historically
               been a centralized process involving a few key individuals within
               the confines of esteemed institutions. With TrashDAO, each
@@ -184,8 +184,8 @@ export default function AboutModal({ isOpen, onOpen, onClose }) {
             <br />
             <Text>
               The aesthetic: Embodies the ideals of Dada, Punk, and Crypto
-              combined with a lo-fi glitch aesthetic or digital folk art
-              style.TrashDAO takes inspiration from both the philosophy of the
+              combined with a lo-fi glitch aesthetic or digital folk art style.
+              TrashDAO takes inspiration from both the philosophy of the
               movement as well as the aesthetic.
             </Text>
             <br />

@@ -79,21 +79,6 @@ export default function DonateModal({ isOpen, onOpen, onClose }) {
             <br />
             <Text>DONATIONS WILL SUPPORT ARTISTS INVOLVED IN THE PROJECT.</Text>
             <br />
-            <Text>
-              SWAP NFTS FOR $TRASH AT THE
-              <Link
-                href="https://szns.io/album/trashdao/bounty_board"
-                isExternal
-                color="#FFEE04"
-                _focus={{
-                  outline: "none",
-                }}
-              >
-                BOUNTY BOARD
-              </Link>{" "}
-              .
-            </Text>
-            <br />
           </ModalBody>
           <ModalFooter
             sx={{ margin: "0 auto" }}

@@ -70,7 +70,7 @@ export default function FaqModal({ isOpen, onOpen, onClose }) {
             <Text>DONATIONS WILL SUPPORT ARTISTS INVOLVED IN THE PROJECT.</Text>
             <br />
             <Text>
-              SWAP NFTS FOR $TRASH AT THE
+              SWAP NFTS FOR $TRASH AT THE{" "}
               <Link
                 href="https://szns.io/album/trashdao/bounty_board"
                 isExternal
