@@ -80,8 +80,7 @@ export default function FaqModal({ isOpen, onOpen, onClose }) {
                 }}
               >
                 BOUNTY BOARD
-              </Link>{" "}
-              .
+              </Link>
             </Text>
             <br />
           </ModalBody>

@@ -61,28 +61,7 @@ export default function GovModal({ isOpen, onOpen, onClose }) {
               width: "full",
             }}
           >
-            <Text>CLICKING DONATE WILL COPY AN ADDRESS TO YOUR CLIPBOARD.</Text>
-            <br />
-            <Text>
-              TRANSFER WHICHEVER TOKENS YOU LIKE THERE FROM YOUR WALLET.
-            </Text>
-            <br />
-            <Text>DONATIONS WILL SUPPORT ARTISTS INVOLVED IN THE PROJECT.</Text>
-            <br />
-            <Text>
-              SWAP NFTS FOR $TRASH AT THE
-              <Link
-                href="https://szns.io/album/trashdao/bounty_board"
-                isExternal
-                color="#FFEE04"
-                _focus={{
-                  outline: "none",
-                }}
-              >
-                BOUNTY BOARD
-              </Link>{" "}
-              .
-            </Text>
+            <Text>Need Governance Content</Text>
             <br />
           </ModalBody>
           <ModalFooter
