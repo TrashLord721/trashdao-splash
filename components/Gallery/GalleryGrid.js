@@ -48,7 +48,7 @@ export default function GalleryGrid() {
   return (
     <>
       <div className={styles.galleryGrid}>
-        {assets.length > 0 &&
+        {assets?.length > 0 &&
           assets.map((asset, index) => {
             const data = {};
             data.thumbnail = asset?.image_url;
