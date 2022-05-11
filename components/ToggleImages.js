@@ -19,9 +19,10 @@ import AboutModal from "./AboutModal";
 import DonateModal from "./DonateModal";
 import FaqModal from "./FaqModal";
 import GovModal from "./GovModal";
-import GalleryGrid from "./GalleryGrid";
+import GalleryGrid from "./Gallery/GalleryGrid";
 import IFrame from "./IFrame";
 import { useInjectedProvider } from "./InjectedProviderContext";
+import { useHeight } from "../contexts/heightContext";
 
 export default function ToggleImages({
   active,
@@ -65,6 +66,8 @@ export default function ToggleImages({
     injectedChain,
     injectedProvider,
   } = useInjectedProvider();
+
+  const {height} = useHeight();
 
   const handleConnect = useCallback(() => {
     console.log("Connecting to injected provider...");

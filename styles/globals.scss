@@ -25,14 +25,14 @@ body {
   #six-nine {
     width: 265px !important;
     height: 53.5px !important;
-    -webkit-animation: moveX2 7s linear 0s infinite alternate,
-      moveY2 7s linear 0s infinite alternate !important;
-    -moz-animation: moveX2 7s linear 0s infinite alternate,
-      moveY2 7s linear 0s infinite alternate !important;
-    -o-animation: moveX2 7s linear 0s infinite alternate,
-      moveY2 7s linear 0s infinite alternate !important;
-    animation: moveX2 7s linear 0s infinite alternate,
-      moveY2 7s linear 0s infinite alternate !important;
+    // -webkit-animation: moveX2 7s linear 0s infinite alternate,
+    //   moveY2 7s linear 0s infinite alternate !important;
+    // -moz-animation: moveX2 7s linear 0s infinite alternate,
+    //   moveY2 7s linear 0s infinite alternate !important;
+    // -o-animation: moveX2 7s linear 0s infinite alternate,
+    //   moveY2 7s linear 0s infinite alternate !important;
+    // animation: moveX2 7s linear 0s infinite alternate,
+    //   moveY2 7s linear 0s infinite alternate !important;
   }
 }
 
@@ -166,14 +166,14 @@ img[src*="sandwich.png"] {
   position: absolute;
   width: 530px;
   height: 107px;
-  -webkit-animation: moveX 3s linear 0s infinite alternate,
-    moveY 3.4s linear 0s infinite alternate;
-  -moz-animation: moveX 3s linear 0s infinite alternate,
-    moveY 3.4s linear 0s infinite alternate;
-  -o-animation: moveX 3s linear 0s infinite alternate,
-    moveY 3.4s linear 0s infinite alternate;
-  animation: moveX 3s linear 0s infinite alternate,
-    moveY 3.4s linear 0s infinite alternate;
+  // -webkit-animation: moveX 3s linear 0s infinite alternate,
+  //   moveY 3.4s linear 0s infinite alternate;
+  // -moz-animation: moveX 3s linear 0s infinite alternate,
+  //   moveY 3.4s linear 0s infinite alternate;
+  // -o-animation: moveX 3s linear 0s infinite alternate,
+  //   moveY 3.4s linear 0s infinite alternate;
+  // animation: moveX 3s linear 0s infinite alternate,
+  //   moveY 3.4s linear 0s infinite alternate;
 }
 
 @-webkit-keyframes moveX {

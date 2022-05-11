@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Toaster } from "react-hot-toast";
 import { InjectedProviderFC } from "../components/InjectedProviderContext";
 import { extendTheme } from "@chakra-ui/react";
+import { HeightContextFC } from "../contexts/heightContext";
 
 const breakpoints = {
   sm: "960px",
@@ -17,12 +18,14 @@ const theme = extendTheme({ breakpoints });
 
 function MyApp({ Component, pageProps }) {
   return (
-    <InjectedProviderFC>
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-        <Toaster />
-      </ChakraProvider>
-    </InjectedProviderFC>
+    <HeightContextFC>
+      <InjectedProviderFC>
+        <ChakraProvider theme={theme}>
+          <Component {...pageProps} />
+          <Toaster />
+        </ChakraProvider>
+      </InjectedProviderFC>
+    </HeightContextFC>
   );
 }
 
