@@ -80,7 +80,7 @@ const GridItem = (props) => {
       onMouseEnter={() => setDisplayModal(true)}
       onMouseLeave={() => setDisplayModal(false)}
     >
-      <a href={asset?.permalink} target="_blank" rel="nofollow">
+      <a href={asset?.permalink} target="_blank" rel="noreferrer">
         <Image
           src={thumbnail}
           alt={`TrashDAO Image #${index}`}
