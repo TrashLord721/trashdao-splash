@@ -34,10 +34,16 @@
 }
 
 .loadMoreButton {
-  background-color: greenyellow;
+  background-color: #72f44a;
   color: black;
   padding: 0.5rem 1rem;
   position: relative;
   width: fit-content;
   margin: 1rem auto;
+}
+
+.trashNFTS {
+  font-size: 4rem;
+  text-align: center;
+  color: #72f44a;
 }
