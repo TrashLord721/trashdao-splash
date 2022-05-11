@@ -22,7 +22,6 @@ export default function SixNineTrash() {
     }
     if (height <= 2000) {
       return height / 150;
-      return 20;
     }
   }
 
