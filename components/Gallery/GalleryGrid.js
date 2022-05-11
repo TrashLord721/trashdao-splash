@@ -2,12 +2,12 @@ import { Image } from "@chakra-ui/react";
 import next from "next";
 import { useEffect, useState } from "react";
 import styles from "./GalleryGrid.module.scss";
-import {useHeight} from '../../contexts/heightContext';
+import { useHeight } from "../../contexts/heightContext";
 
 export default function GalleryGrid() {
   const [assets, setAssets] = useState([]);
   const [nextCursor, setNextCursor] = useState(null);
-  const {refreshHeight} = useHeight();
+  const { refreshHeight } = useHeight();
 
   // Call API code block explained with mack
   useEffect(() => {

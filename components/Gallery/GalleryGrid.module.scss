@@ -1,43 +1,43 @@
 .galleryGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    column-gap: 0;
-    row-gap: 0;
-    place-items: center;
-    @media screen and (max-width: 1100px) {
-        grid-template-columns: 1fr 1fr 1fr 1fr
-    }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 0;
+  row-gap: 0;
+  place-items: center;
+  @media screen and (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .gridItem {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .gridImage {
-    width: 100%;
+  width: 100%;
 }
 
 .gridModal {
-    background-color: rgba(0,0,0,0.75);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    font-size: 1rem;
-    position: absolute;
-    top: 0;
-    left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .loadMoreButton {
-    background-color: greenyellow;
-    color: black;
-    padding: .5rem 1rem;
-    position: relative;
-    width: fit-content;
-    margin: 1rem auto;
+  background-color: greenyellow;
+  color: black;
+  padding: 0.5rem 1rem;
+  position: relative;
+  width: fit-content;
+  margin: 1rem auto;
 }

@@ -67,7 +67,7 @@ export default function ToggleImages({
     injectedProvider,
   } = useInjectedProvider();
 
-  const {height} = useHeight();
+  const { height } = useHeight();
 
   const handleConnect = useCallback(() => {
     console.log("Connecting to injected provider...");

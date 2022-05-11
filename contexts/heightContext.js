@@ -1,31 +1,38 @@
-import {useState, useEffect, useContext, createContext} from 'react';
+import { useState, useEffect, useContext, createContext } from "react";
 
 export const HeightContext = createContext(null);
 
-export const HeightContextFC = ({children}) => {
+export const HeightContextFC = ({ children }) => {
+  const [height, setHeight] = useState(null);
 
-    const [height, setHeight] = useState(null);
+  const refreshHeight = () => {
+    if (document) {
+      let body = document.body;
+      let html = document.documentElement;
 
-    const refreshHeight = () => {
-        if (document) {
-        let body = document.body;
-        let html = document.documentElement;
-
-        let tempHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-        setHeight(tempHeight);
-        }
+      let tempHeight = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
+      setHeight(tempHeight);
     }
+  };
 
-    useEffect(() => {
-        refreshHeight();
-    },[])
+  useEffect(() => {
+    refreshHeight();
+  }, []);
 
-    return (
-        <HeightContext.Provider value={{height, refreshHeight}}>{children}</HeightContext.Provider>
-    )
-}
+  return (
+    <HeightContext.Provider value={{ height, refreshHeight }}>
+      {children}
+    </HeightContext.Provider>
+  );
+};
 
 export const useHeight = () => {
-    const {height, refreshHeight} = useContext(HeightContext);
-    return {height, refreshHeight};
-}
+  const { height, refreshHeight } = useContext(HeightContext);
+  return { height, refreshHeight };
+};
