@@ -31,7 +31,7 @@ export default function GalleryGrid() {
     if (assets.length > 1) {
       console.log(assets[11]);
     }
-  },[assets])
+  }, [assets]);
 
   const getNextData = async () => {
     const body = JSON.stringify({ cursor: `${nextCursor}` });
@@ -53,13 +53,19 @@ export default function GalleryGrid() {
 
   return (
     <>
-    <div>
-      {assets?.length > 1 && <>
-        <h3 className={styles.trashNFTS}>
-          {(nextCursor !== null) ? <>&gt;400 TRASH NFTS</> : <>{assets.length} TRASH NFTS</>}  
-          </h3>
-      </>}
-    </div>
+      <div>
+        {assets?.length > 1 && (
+          <>
+            <h3 className={styles.trashNFTS}>
+              {nextCursor !== null ? (
+                <>&gt;400 TRASH NFTS</>
+              ) : (
+                <>{assets.length} TRASH NFTS</>
+              )}
+            </h3>
+          </>
+        )}
+      </div>
       <div className={styles.galleryGrid}>
         {assets?.length > 0 &&
           assets.map((asset, index) => {
