@@ -9,7 +9,7 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
-
+import styles from "./ModalContent.module.scss";
 import MarqueeC from "./MarqueeC";
 
 export default function GovModal({ isOpen, onOpen, onClose }) {
@@ -61,7 +61,54 @@ export default function GovModal({ isOpen, onOpen, onClose }) {
               width: "full",
             }}
           >
-            <Text>Need Governance Content</Text>
+            <Text className={styles.modalContent}>
+              TrashDAO is governed as a{" "}
+              <Link
+                href="https://docs.szns.io/core-components/albums"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <a>SZNS Album</a>
+              </Link>{" "}
+              by the holders of $TRASH token. Anyone can acquire $TRASH by
+              depositing NFTs into the{" "}
+              <Link
+                href="https://szns.io/album/trashdao/bounty_board"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <a>Bounty Board</a>
+              </Link>{" "}
+              where all eligible NFTs equal 69 $TRASH.
+            </Text>
+            <br />
+            <Text className={styles.modalContent}>
+              Anyone holding $TRASH is able to submit proposals via the{" "}
+              <Link
+                href="https://szns.io/album/trashdao/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <a>Album Interface</a>
+              </Link>
+              , or via{" "}
+              <Link
+                href="https://snapshot.org/#/trashdao.szns.eth"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <a>Snapshot</a>
+              </Link>
+              . Ask any further questions in the{" "}
+              <Link
+                href="https://discord.com/invite/ySPNt97G7P"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <a>TrashDAO Discord</a>
+              </Link>
+              !
+            </Text>
             <br />
           </ModalBody>
           <ModalFooter

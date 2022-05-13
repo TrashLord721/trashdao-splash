@@ -9,6 +9,7 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
+import styles from "./ModalContent.module.scss";
 
 import MarqueeC from "./MarqueeC";
 
@@ -61,26 +62,35 @@ export default function FaqModal({ isOpen, onOpen, onClose }) {
               width: "full",
             }}
           >
-            <Text>CLICKING DONATE WILL COPY AN ADDRESS TO YOUR CLIPBOARD.</Text>
-            <br />
+            <h3 className={styles.faqQuestion}>Q: How do I acquire Trash?</h3>
             <Text>
-              TRANSFER WHICHEVER TOKENS YOU LIKE THERE FROM YOUR WALLET.
+              A: CLICKING DONATE WILL COPY AN ADDRESS TO YOUR CLIPBOARD.
             </Text>
             <br />
-            <Text>DONATIONS WILL SUPPORT ARTISTS INVOLVED IN THE PROJECT.</Text>
-            <br />
+            <h3 className={styles.faqQuestion}>
+              Q: What makes these NFTs qualified?
+            </h3>
             <Text>
-              SWAP NFTS FOR $TRASH AT THE{" "}
+              The initial list of NFTs added to the TrashDAO acceptance included
+              the first 5000 contracts on OpenSea that had more than 0.3 ETH in
+              trading volume. See the current list{" "}
               <Link
-                href="https://szns.io/album/trashdao/bounty_board"
-                isExternal
-                color="#FFEE04"
-                _focus={{
-                  outline: "none",
-                }}
+                href="https://docs.google.com/spreadsheets/d/1V9ZFSONEML4hqf1qySDiETZq6ZQmIEeZLpwdA9Ssm7A/edit#gid=0"
+                target="_blank"
+                rel="noreferrer"
               >
-                BOUNTY BOARD
+                <a>here</a>
               </Link>
+              .
+            </Text>
+            <br />
+            <h3 className={styles.faqQuestion}>
+              Q: Where is the TrashDAO going?
+            </h3>
+            <Text>
+              The future of the TrashDAO will be determined by the $TRASH token
+              holders. As a SZNS Album, the TrashDAO is governed via proposals
+              voted on by token holders.
             </Text>
             <br />
           </ModalBody>
