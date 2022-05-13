@@ -12,6 +12,8 @@
 .gridItem {
   width: 100%;
   position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .gridImage {
@@ -46,4 +48,17 @@
   font-size: 4rem;
   text-align: center;
   color: #72f44a;
+}
+
+.masonryGrid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -10px; /* gutter size offset */
+  width: auto;
+}
+
+.masonryGridColumn {
+  padding-left: 10px; /* gutter size */
+  background-clip: padding-box;
 }
