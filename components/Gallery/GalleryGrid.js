@@ -3,7 +3,7 @@ import next from "next";
 import { useEffect, useState } from "react";
 import styles from "./GalleryGrid.module.scss";
 import { useHeight } from "../../contexts/heightContext";
-import  Masonry  from "react-masonry-css";
+import Masonry from "react-masonry-css";
 
 export default function GalleryGrid() {
   const [assets, setAssets] = useState([]);
@@ -21,8 +21,8 @@ export default function GalleryGrid() {
       const result = await fetch("/api/opensea", options);
       const jsonResult = await result.json();
       if (typeof jsonResult !== "undefined") {
-        console.log('response got');
-        console.log({jsonResult});
+        console.log("response got");
+        console.log({ jsonResult });
         setAssets(jsonResult.assets);
         setNextCursor(jsonResult?.next);
         refreshHeight();
@@ -39,7 +39,7 @@ export default function GalleryGrid() {
       data.asset = asset;
       return data;
     });
-    console.log({tempAssets});
+    console.log({ tempAssets });
     setMasonryAssets(tempAssets);
   }, [assets]);
 
@@ -61,14 +61,14 @@ export default function GalleryGrid() {
     }
   };
 
-const masonryBreakpoint = {
-  default: 12,
-  2000: 12,
-  1700: 8,
-  1100: 6,
-  700: 5,
-  500: 4
-}
+  const masonryBreakpoint = {
+    default: 12,
+    2000: 12,
+    1700: 8,
+    1100: 6,
+    700: 5,
+    500: 4,
+  };
 
   return (
     <>
@@ -95,13 +95,19 @@ const masonryBreakpoint = {
             return <GridItem key={index} data={data} />;
           })}
       </div> */}
-      {masonryAssets?.length > 0 && <>
-        <Masonry breakpointCols={masonryBreakpoint} className={styles.masonryGrid} columnClassName={styles.masonryGridColumn}>
-          {masonryAssets.map((asset, index) => {
-            return <GridItem key={index} data={asset} />
-          })}
-        </Masonry>
-      </>}
+      {masonryAssets?.length > 0 && (
+        <>
+          <Masonry
+            breakpointCols={masonryBreakpoint}
+            className={styles.masonryGrid}
+            columnClassName={styles.masonryGridColumn}
+          >
+            {masonryAssets.map((asset, index) => {
+              return <GridItem key={index} data={asset} />;
+            })}
+          </Masonry>
+        </>
+      )}
       {nextCursor !== null && (
         <>
           <div className={styles.loadMoreButton} onClick={() => getNextData()}>
